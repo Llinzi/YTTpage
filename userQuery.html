@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/ico" href="assets/images/favicon.ico" />
+    <!-- Bootstrap -->
+    <link href="assets/css/vendor/bootstrap/bootstrap.min.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/4.1.0/css/font-awesome.min.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/vendor/animate/animate.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/animate/animate.css">
+    <link type="text/css" rel="stylesheet" media="all" href="assets/js/vendor/mmenu/css/jquery.mmenu.all.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/mmenu/css/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="assets/js/vendor/videobackground/css/jquery.videobackground.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/videobackground/css/jquery.videobackground.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap-checkbox.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/bootstrap-checkbox.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
+
+    <link rel="stylesheet" href="assets/js/vendor/chosen/css/chosen.min.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/chosen/css/chosen.min.css">
+    <link rel="stylesheet" href="assets/js/vendor/chosen/css/chosen-bootstrap.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/chosen/css/chosen-bootstrap.css">
+
+    <link href="assets/css/minimal.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/minimal.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../../../../../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" tppabs="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../../../../../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" tppabs="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="bg-1">
+
+<!-- Preloader -->
+<div class="mask"><div id="loader"></div></div>
+<!--/Preloader -->
+
+<!-- Wrap all page content here -->
+<div id="wrap">
+
+
+
+
+    <!-- Make page fluid -->
+    <div class="row">
+
+
+
+        <div id="menuContainer">
+
+        </div>
+
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+            <!-- page header -->
+            <div class="pageheader">
+
+
+                <h2><i class="fa fa-puzzle-piece" style="line-height: 48px;padding-left: 5px;"></i> Tables <span>// Place subtitle here...</span></h2>
+
+
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li>You are here</li>
+                        <li><a href="index.html" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/index.html">Minimal</a></li>
+                        <li><a href="tables.html" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/tables.html">Tables</a></li>
+                        <li class="active">Bootstrap Tables</li>
+                    </ol>
+                </div>
+
+
+            </div>
+            <!-- /page header -->
+            <!-- content main container -->
+            <div class="main">
+
+
+
+
+                <!-- row -->
+                <div class="row">
+
+                    <!-- tile -->
+                    <section class="tile color transparent-black">
+
+
+
+                        <!-- tile header -->
+                        <div class="tile-header">
+                            <h1><strong>Advanced</strong> Table</h1>
+                            <div class="search">
+                                <input type="text" placeholder="Search...">
+                            </div>
+                            <div class="controls">
+                                <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+                                <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                        <!-- /tile header -->
+
+                        <!-- tile widget -->
+                        <div class="tile-widget bg-transparent-black-2">
+                            <div class="row">
+
+                                <div class="col-sm-4 col-xs-6">
+                                    <div class="input-group table-options">
+                                        <select class="chosen-select form-control">
+                                            <option>Bulk Action</option>
+                                            <option>Delete Selected</option>
+                                            <option>Copy Selected</option>
+                                            <option>Archive Selected</option>
+                                        </select>
+                                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Apply</button>
+                          </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-8 col-xs-6 text-right">
+
+                                    <div class="btn-group btn-group-xs table-options">
+                                        <button type="button" class="btn btn-default">Day</button>
+                                        <button type="button" class="btn btn-default">Week</button>
+                                        <button type="button" class="btn btn-default">Month</button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- /tile widget -->
+
+
+
+                        <!-- tile body -->
+                        <div class="tile-body nopadding">
+
+                            <table class="table table-bordered table-sortable">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        <div class="checkbox check-transparent">
+                                            <input type="checkbox" value="1" id="allchck">
+                                            <label for="allchck"></label>
+                                        </div>
+                                    </th>
+                                    <th class="sortable sort-alpha sort-asc">First Name</th>
+                                    <th class="sortable sort-alpha">Last Name</th>
+                                    <th class="sortable sort-alpha">Username</th>
+                                    <th style="width: 30px;"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox check-transparent">
+                                            <input type="checkbox" value="1" id="chck01">
+                                            <label for="chck01"></label>
+                                        </div>
+                                    </td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td><a href="#" class="check-toggler checked"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox check-transparent">
+                                            <input type="checkbox" value="1" id="chck02">
+                                            <label for="chck02"></label>
+                                        </div>
+                                    </td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td><a href="#" class="check-toggler"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox check-transparent">
+                                            <input type="checkbox" value="1" id="chck03">
+                                            <label for="chck03"></label>
+                                        </div>
+                                    </td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td><a href="#" class="check-toggler checked"></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /tile body -->
+
+
+                        <!-- tile footer -->
+                        <div class="tile-footer bg-transparent-black-2 rounded-bottom-corners">
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <div class="input-group table-options">
+                                        <select class="chosen-select form-control">
+                                            <option>Bulk Action</option>
+                                            <option>Delete Selected</option>
+                                            <option>Copy Selected</option>
+                                            <option>Archive Selected</option>
+                                        </select>
+                                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Apply</button>
+                          </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 text-center">
+                                    <small class="inline table-options paging-info">showing 1-3 of 24 items</small>
+                                </div>
+
+                                <div class="col-sm-4 text-right sm-center">
+                                    <ul class="pagination pagination-xs nomargin pagination-custom">
+                                        <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /tile footer -->
+
+
+
+
+                    </section>
+                    <!-- /tile -->
+
+
+
+                </div>
+                <!-- /row -->
+
+
+
+            </div>
+            <!-- /content container -->
+        </div>
+        <!-- Page content end -->
+    </div>
+    <!-- Make page fluid-->
+
+
+
+
+</div>
+<!-- Wrap all page content end -->
+
+
+
+<section class="videocontent" id="video"></section>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/js/jquery.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="assets/js/vendor/bootstrap/bootstrap.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js"></script>
+<!--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>-->
+<script type="text/javascript" src="assets/js/vendor/mmenu/js/jquery.mmenu.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/sparkline/jquery.sparkline.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/nicescroll/jquery.nicescroll.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/nicescroll/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/animate-numbers/jquery.animateNumbers.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
+<script type="text/javascript" src="assets/js/vendor/videobackground/jquery.videobackground.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/videobackground/jquery.videobackground.js"></script>
+<script type="text/javascript" src="assets/js/vendor/blockui/jquery.blockUI.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/blockui/jquery.blockUI.js"></script>
+
+<script src="assets/js/vendor/chosen/chosen.jquery.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/chosen/chosen.jquery.min.js"></script>
+
+<script src="assets/js/minimal.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/minimal.min.js"></script>
+<script>
+    $(function () {
+        $("#menuContainer").load("navigationMenu.html");
+
+       /* $.ajax({
+            url : 'navigationMenu.html',
+            cache : true,
+            async : false,
+            success : function(html) {
+                $("#menuContainer").html(html);
+            }
+        });*/
+    })
+</script>
+<script>
+    $(function(){
+        //check all checkboxes
+        $('table thead input[type="checkbox"]').change(function () {
+            $(this).parents('table').find('tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'));
+        });
+
+        // sortable table
+        $('.table.table-sortable th.sortable').click(function() {
+            var o = $(this).hasClass('sort-asc') ? 'sort-desc' : 'sort-asc';
+            $(this).parents('table').find('th.sortable').removeClass('sort-asc').removeClass('sort-desc');
+            $(this).addClass(o);
+        });
+
+        //chosen select input
+        $(".chosen-select").chosen({disable_search_threshold: 10});
+
+        //check toggling
+        $('.check-toggler').on('click', function(){
+            $(this).toggleClass('checked');
+        })
+
+    })
+
+</script>
+</body>
+</html>
