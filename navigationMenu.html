@@ -358,7 +358,7 @@
 
 
 
-        <!-- 右边菜单栏开始 -->
+        <!-- 左边菜单栏开始 -->
         <ul class="nav navbar-nav side-nav" id="sidebar">
 
             <li class="collapsed-content">
@@ -368,64 +368,60 @@
             </li>
 
             <li class="navigation" id="navigation">
-                <a href="#" class="sidebar-toggle" data-toggle="#navigation">导航菜单<i class="fa fa-angle-up"></i></a>
+                <a href="#" class="sidebar-toggle" data-toggle="#navigation">Navigation <i class="fa fa-angle-up"></i></a>
 
                 <ul class="menu">
 
-                    <li>
+                    <li class="active">
                         <a href="index.html">
-                            <i class="fa fa-tachometer"></i>首页
+                            <i class="fa fa-tachometer"></i> 主页
                             <span class="badge badge-red">1</span>
                         </a>
                     </li>
 
-                    <!-- 用户管理菜单开始 -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-user fa-fw"></i> 用户管理 <b class="fa fa-plus dropdown-plus"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown">
-                                <a href="userQuery.html" class="dropdown-toggle" data-toggle="dropdown">
+                            <li>
+                                <a href="userQuery.html" id="userQuery">
                                     <i class="fa fa-search" ></i> 用户查询
                                 </a>
-                                <!-- 这是为了点击菜单不关闭菜单栏而添加的隐藏二级菜单  -->
                             </li>
-                            <li class="dropdown">
-                                <a href="userAdd.html" class="dropdown-toggle" data-toggle="dropdown">
+                            <li>
+                                <a href="userAdd.html">
                                     <i class="fa fa-plus-circle"></i> 用户添加
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <!-- 用户管理菜单结束 -->
 
-                    <!-- 蔬菜管理菜单开始 -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-leaf"></i> 蔬菜管理 <b class="fa fa-plus dropdown-plus"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-search"></i> 蔬菜查询
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-search" ></i> 蔬菜查询
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <li>
+                                <a href="#">
                                     <i class="fa fa-plus-circle"></i> 蔬菜添加
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <!-- 蔬菜管理菜单结束 -->
 
                 </ul>
 
             </li>
 
+
         </ul>
-        <!-- 右边菜单栏结束 -->
+        <!-- 左边菜单栏结束 -->
 
     </div>
     <!--上面导航栏结束 -->
