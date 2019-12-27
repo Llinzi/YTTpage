@@ -291,7 +291,10 @@
 
 <script src="assets/js/minimal.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/minimal.min.js"></script>
 <script>
+    //页面加载时把导航菜单加载到相应位置
     $("#menuContainer").load("navigationMenu.html");
+    //设置菜单缓存
+    window.sessionStorage.setItem("menu","userAddMenu");
 </script>
 <script>
     $(function(){

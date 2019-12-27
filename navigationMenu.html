@@ -372,7 +372,7 @@
 
                 <ul class="menu">
 
-                    <li class="active">
+                    <li id="userIndexMenu">
                         <a href="index.html">
                             <i class="fa fa-tachometer"></i> 主页
                             <span class="badge badge-red">1</span>
@@ -384,12 +384,12 @@
                             <i class="fa fa-user fa-fw"></i> 用户管理 <b class="fa fa-plus dropdown-plus"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="userQuery.html" id="userQuery">
+                            <li id="userQueryMenu">
+                                <a href="userQuery.html">
                                     <i class="fa fa-search" ></i> 用户查询
                                 </a>
                             </li>
-                            <li>
+                            <li id="userAddMenu">
                                 <a href="userAdd.html">
                                     <i class="fa fa-plus-circle"></i> 用户添加
                                 </a>
@@ -427,4 +427,19 @@
     <!--上面导航栏结束 -->
 </div>
 <!-- Fixed navbar end -->
-
+<script>
+    $(function () {
+        //获取菜单缓存
+        var menu = window.sessionStorage.getItem("menu");
+        //判断缓存的值，并设置相应菜单高亮显示
+        if (menu == "userIndexMenu"){
+            $("#userIndexMenu").addClass("active");
+        } else if (menu == "userQueryMenu"){
+            $("#userQueryMenu").addClass("active");
+            $("#userQueryMenu").parent().parent().addClass("open");
+        }else if (menu == "userAddMenu"){
+            $("#userAddMenu").addClass("active");
+            $("#userAddMenu").parent().parent().addClass("open");
+        }
+    })
+</script>
