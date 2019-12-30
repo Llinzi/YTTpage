@@ -3,7 +3,7 @@
 <head>
     <title>用戶添加</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
 
     <link rel="icon" type="image/ico" href="assets/images/favicon.ico" />
     <!-- Bootstrap -->
@@ -36,29 +36,15 @@
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-
-
-
     <!-- Make page fluid -->
     <div class="row">
-
-
 
         <div id="menuContainer">
 
         </div>
 
-
         <!-- 内容开始 -->
         <div id="content" class="col-md-12">
-
-
-
-
-
-
-
-
 
             <!-- 头部开始 -->
             <div class="pageheader">
@@ -80,28 +66,16 @@
             </div>
             <!-- 头部结束 -->
 
-
-
-
-
-
             <!-- 主要内容开始 -->
             <div class="main">
-
-
-
 
                 <!-- row -->
                 <div class="row">
                     <!-- col 12 -->
                     <div class="col-md-10">
 
-
-
                         <!-- tile -->
                         <section class="tile color transparent-black">
-
-
 
                             <!-- tile header -->
                             <div class="tile-header">
@@ -117,12 +91,12 @@
                             <!-- tile body -->
                             <div class="tile-body">
 
-                                <form class="form-horizontal" role="form" parsley-validate id="basicvalidations">
+                                <form class="form-horizontal" role="form" parsley-validate onsubmit="return addUser()">
 
                                     <div class="form-group">
                                         <label for="userName" class="col-sm-4 control-label">用户姓名</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="userName" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
+                                            <input v-model="params.userName" type="text" class="form-control" id="userName" parsley-trigger="change" parsley-required="true" parsley-minlength="2" parsley-validation-minlength="1">
                                         </div>
                                     </div>
 
@@ -130,14 +104,14 @@
                                     <div class="form-group">
                                         <label for="userAccount" class="col-sm-4 control-label">用户账号</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="userAccount" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
+                                            <input v-model="params.userAccount" type="text" class="form-control" id="userAccount" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="userPwd" class="col-sm-4 control-label">密码</label>
                                         <div class="col-sm-8">
-                                            <input type="password" class="form-control" id="userPwd" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1">
+                                            <input v-model="params.userPwd" type="password" class="form-control" id="userPwd" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1">
                                         </div>
                                     </div>
 
@@ -152,28 +126,28 @@
                                     <div class="form-group">
                                         <label for="userEmail" class="col-sm-4 control-label">邮箱</label>
                                         <div class="col-sm-8">
-                                            <input type="email" class="form-control" id="userEmail" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">
+                                            <input v-model="params.userEmail" type="email" class="form-control" id="userEmail" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="userAge" class="col-sm-4 control-label">年龄</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="userAge" parsley-trigger="change" parsley-required="true" parsley-type="number" parsley-validation-minlength="0" placeholder="必须为数字...">
+                                            <input v-model="params.userAge" type="text" class="form-control" id="userAge" parsley-trigger="change" parsley-required="true" parsley-type="number" parsley-validation-minlength="0" placeholder="必须为数字...">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="userPhone" class="col-sm-4 control-label">电话</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="userPhone" parsley-trigger="change" parsley-required="true" parsley-type="phone" parsley-validation-minlength="0" placeholder="1234567890">
+                                            <input v-model="params.userPhone" type="text" class="form-control" id="userPhone" parsley-trigger="change" parsley-required="true" parsley-type="phone" parsley-validation-minlength="0" placeholder="1234567890">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="selectSex" class="col-sm-4 control-label">性别</label>
                                         <div class="col-sm-8" id="selectSex">
-                                            <select class="chosen-select chosen-transparent form-control" id="userSex" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
+                                            <select v-model="params.userSex" class="chosen-select chosen-transparent form-control" id="userSex" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
                                                 <option value="">请选择</option>
                                                 <option value="0">男</option>
                                                 <option value="1">女</option>
@@ -184,7 +158,7 @@
                                     <div class="form-group">
                                         <label for="selectState" class="col-sm-4 control-label">状态</label>
                                         <div class="col-sm-8" id="selectState">
-                                            <select class="chosen-select chosen-transparent form-control" id="userState" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
+                                            <select v-model="params.userState" class="chosen-select chosen-transparent form-control" id="userState" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
                                                 <option value="">请选择</option>
                                                 <option value="0">禁用</option>
                                                 <option value="1">启用</option>
@@ -195,7 +169,7 @@
                                     <div class="form-group">
                                         <label for="selectPermissions" class="col-sm-4 control-label">权限</label>
                                         <div class="col-sm-8" id="selectPermissions">
-                                            <select class="chosen-select chosen-transparent form-control" id="userPermissions" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
+                                            <select v-model="params.userPermissions" class="chosen-select chosen-transparent form-control" id="userPermissions" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox">
                                                 <option value="">请选择</option>
                                                 <option value="0">管理员</option>
                                                 <option value="1">用户</option>
@@ -222,45 +196,19 @@
 
                             </div>
                             <!-- /tile body -->
-
-
-
-
                         </section>
                         <!-- /tile -->
-
-
-
-
                     </div>
                     <!-- /col 6 -->
                 </div>
                 <!-- /row -->
-
-
-
             </div>
             <!-- 主要内容结束 -->
 
-
-
-
-
-
         </div>
         <!-- 内容结束 -->
-
-
-
-
-
-
-
     </div>
     <!-- Make page fluid-->
-
-
-
 
 </div>
 <!-- Wrap all page content end -->
@@ -273,6 +221,7 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/vue.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
 <script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js" ></script>
@@ -282,11 +231,8 @@
 <script type="text/javascript" src="assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
 <script type="text/javascript" src="assets/js/vendor/videobackground/jquery.videobackground.js"></script>
 <script type="text/javascript" src="assets/js/vendor/blockui/jquery.blockUI.js"></script>
-
 <script src="assets/js/vendor/chosen/chosen.jquery.min.js"></script>
-
-<script src="assets/js/vendor/parsley/parsley.min.js"></script>
-
+<script src="assets/js/vendor/parsley/parsley.min.js" charset="GBK"></script>
 <script src="assets/js/minimal.min.js"></script>
 <script>
     //页面加载时把导航菜单加载到相应位置
@@ -295,11 +241,36 @@
     window.sessionStorage.setItem("menu","userAddMenu");
 </script>
 <script>
-/*    $(function(){
-        //chosen select input
-        $(".chosen-select").chosen({disable_search_threshold: 10});
-
-    })*/
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            params:{
+                userName:"admin",
+                userAccount:"111111",
+                userPwd:"111111",
+                userEmail:"",
+                userAge:null,
+                userPhone:"",
+                userSex:null,
+                userState:null,
+                userPermissions:null
+            },
+        },
+        methods:{
+            addUser : function () {
+                /*$.ajax({
+                    url:"http://localhost:9000/users/addUser",
+                    type:"POST",
+                    dataType:"json",
+                    contentType: 'application/json; charset=UTF-8',
+                    data: JSON.stringify(vm.params),
+                    success:function (data) {
+                        console.log(data);
+                    }
+                });*/
+            }
+        }
+    });
 </script>
 </body>
 </html>
