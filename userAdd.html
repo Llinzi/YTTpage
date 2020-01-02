@@ -72,7 +72,7 @@
                 <!-- row -->
                 <div class="row">
                     <!-- col 12 -->
-                    <div class="col-md-10">
+                    <div class="col-md-12">
 
                         <!-- tile -->
                         <section class="tile color transparent-black">
@@ -115,7 +115,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" id="reUserPwd">
                                         <label for="passwordconfirm" class="col-sm-4 control-label">确认密码</label>
                                         <div class="col-sm-8">
                                             <input type="password" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#userPwd">
@@ -180,6 +180,8 @@
                                     <div class="form-group">
                                         <label for="userHead" class="col-sm-4 control-label">用户头像</label>
                                         <div class="col-sm-8">
+                                            <!--<div id="img"></div>-->
+                                            <img src="" class="img" width="300px" height="250px"/>
                                             <input type="file" class="form-control" id="userHead" name="userHead">
                                         </div>
                                     </div>
@@ -187,7 +189,8 @@
 
                                     <div class="form-group form-footer">
                                         <div class="col-sm-offset-4 col-sm-8">
-                                            <button type="button" class="btn btn-primary" @click="addUser">保存</button>
+                                            <button type="button" class="btn btn-primary" id="save" @click="addUser()">保存</button>
+                                            <button type="button" class="btn btn-primary" id="update" @click="updateUser()">修改</button>
                                             <button type="reset" class="btn btn-default">重置</button>
                                         </div>
                                     </div>
@@ -199,7 +202,7 @@
                         </section>
                         <!-- /tile -->
                     </div>
-                    <!-- /col 6 -->
+                    <!-- /col 12 -->
                 </div>
                 <!-- /row -->
             </div>
@@ -239,27 +242,47 @@
     $("#menuContainer").load("navigationMenu.html");
     //设置菜单缓存
     window.sessionStorage.setItem("menu","userAddMenu");
+
+    /*显示图片*/
+    $(function () {
+        /* 重点是这个位置 */
+        $("#userHead").change(function() {
+            /*在改变照片时，清空以前图片*/
+            $("#img").empty();
+            var oFReader = new FileReader();
+            var file = document.getElementById('userHead').files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function(oFRevent){
+                var src = oFRevent.target.result;
+                $(".img").attr("src",src);
+                /*$("#img").append("<img src=\""+src+"\">");*/
+            }
+        });
+    });
 </script>
 <script>
     var vm = new Vue({
         el:"#content",
         data:{
             params:{
-                userName:"admin",
-                userAccount:"111111",
-                userPwd:"111111",
+                userId:null,
+                userName:"",
+                userAccount:"",
+                userPwd:"",
                 userEmail:"",
                 userAge:null,
                 userPhone:"",
                 userSex:-1,
                 userState:-1,
                 userPermissions:-1,
-                userHead:null
+                userHead:""
             },
         },
-        /*mounted:{
-
-        },*/
+        mounted:function(){
+            //页面加载时隐藏修改按钮
+            $("#update").hide();
+            this.viewUser();
+        },
         methods:{
             /**
              * 添加用户信息
@@ -297,6 +320,89 @@
                         }
                     }
                 });
+            },
+            viewUser : function () {
+                //从缓存中获得用户数据(因为我们使用了 JSON.stringify() 将 对象转换为 json 字符串 ，所以要用 JSON.parse() 把 json 转换为对象)
+                var userData = JSON.parse(window.sessionStorage.getItem("data"));
+                console.log(userData);
+                //判断用户数据是否为空
+                if( userData != null){
+                    //把密码框修改为可见,然后隐藏确认密码框,把修改按钮显示，把保存按钮隐藏
+                    $("#userPwd").attr("type","text");
+                    $("#reUserPwd").hide();
+                    $("#save").hide();
+                    $("#update").show();
+                    //赋值
+                    this.params.userId = userData.userId;
+                    this.params.userName = userData.userName;
+                    this.params.userAccount = userData.userAccount;
+                    this.params.userPwd = userData.userPwd;
+                    this.params.userEmail = userData.userEmail;
+                    this.params.userAge = userData.userAge;
+                    this.params.userPhone = userData.userPhone;
+                    this.params.userSex = userData.userSex;
+                    this.params.userState = userData.userState;
+                    this.params.userPermissions = userData.userPermissions;
+                    this.params.userHead = userData.userHead;
+                    //显示图片
+                    $(".img").attr("src",userData.userHead);
+                }
+            },
+            //根据 id 修改用户信息
+            updateUser : function () {
+                //alert(id);
+                //判断用户是否修改了图片
+                var head = $("#userHead").val();
+                //如果没有修改图片，就只修改用户相关信息，不上传图片
+                if( head == ""){
+                    $.ajax({
+                        url:"http://localhost:9000/users/updateUser",
+                        type:"POST",
+                        dataType:"json",
+                        contentType: 'application/json; charset=UTF-8',
+                        data:JSON.stringify(vm.params),
+                        success:function (data) {
+                            console.log(data);
+                            if (data.code === 0){
+                                alert(data.msg);
+                            }else {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+                }else {
+                    /**
+                     * 1、如果修改了图片，先要删除本地图片
+                     * 2、删除成功后再上传新的图片到本地
+                     * 3、然后再修改用户相关信息
+                     */
+                    //1、删除图片
+                    var url = "http://localhost:9000/upload/deleteUserHead";
+                    var args = {
+                        "userHead":vm.params.userHead
+                    }
+                    $.post(url,args,function (data) {
+                       if (data.code === 0){
+                           //2、上传图片
+                           $.ajax({
+                               url:"http://localhost:9000/upload/userUpload",
+                               type:"POST", //请求方式
+                               dataType:"json", //前端发送数据的格式
+                               cache:false, //关闭缓存
+                               processData: false, //默认情况下，processData 的值是 true，其代表以对象的形式上传的数据都会被转换为字符串的形式上传。而当上传文件的时候，则不需要把其转换为字符串，因此要改成false
+                               contentType: false, //上传文件时改为 false
+                               data:new FormData($("#userForm")[0]), //用 Ajax 上传文件，需要使用 FormData 对象来作为数据
+                               success:function (data) {
+                                   if (data.code === 0){
+                                       alert(data.msg);
+                                   }
+                               }
+                           });
+                       }else {
+                           alert(data.msg);
+                       }
+                    });
+                }
             }
         }
     });

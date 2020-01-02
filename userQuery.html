@@ -175,7 +175,7 @@
                                         <td v-if="data.userState==0"><a href="#" class="check-toggler"></a></td>
                                         <td v-else><a href="#" class="check-toggler checked"></a></td>
                                         <td>
-                                            <a title="修改"><i class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                                            <a title="修改"><i class="fa fa-edit fa-2x" aria-hidden="true" @click="updateUser(index)"></i></a>
                                             <a title="删除"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
@@ -230,18 +230,18 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/vue.js"></script>
-<script src="assets/js/vendor/bootstrap/bootstrap.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
-<script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js"></script>
-<script type="text/javascript" src="assets/js/vendor/mmenu/js/jquery.mmenu.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
-<script type="text/javascript" src="assets/js/vendor/sparkline/jquery.sparkline.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
-<script type="text/javascript" src="assets/js/vendor/nicescroll/jquery.nicescroll.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/nicescroll/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="assets/js/vendor/animate-numbers/jquery.animateNumbers.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
-<script type="text/javascript" src="assets/js/vendor/videobackground/jquery.videobackground.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/videobackground/jquery.videobackground.js"></script>
-<script type="text/javascript" src="assets/js/vendor/blockui/jquery.blockUI.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/blockui/jquery.blockUI.js"></script>
+<script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/sparkline/jquery.sparkline.min.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/nicescroll/jquery.nicescroll.min.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
+<script type="text/javascript" src="assets/js/vendor/videobackground/jquery.videobackground.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/blockui/jquery.blockUI.js" ></script>
 
-<script src="assets/js/vendor/chosen/chosen.jquery.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/chosen/chosen.jquery.min.js"></script>
+<script src="assets/js/vendor/chosen/chosen.jquery.min.js" ></script>
 
-<script src="assets/js/minimal.min.js" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/minimal.min.js"></script>
+<script src="assets/js/minimal.min.js"></script>
 <!--引入分页插件模板-->
 <script src="assets/js/bootstrap-paginator.js"></script>
 <script>
@@ -298,6 +298,7 @@
             $("#page").bootstrapPaginator(options);
         },
         methods:{
+            //查询用户相关信息
             userQuery:function () {
                 $.ajax({
                     url:"http://localhost:9000/users/selectUser",
@@ -307,14 +308,21 @@
                     success:function (data) {
                         if (data.code === 0){
                             console.log(data);
-                            vm.dataList = data.dataList;
+                            vm.dataList = data.dataList;//查询到的数据
                             vm.params.pages = data.pages;//总页数
-                            vm.params.currentPage = data.pageNum
+                            vm.params.currentPage = data.pageNum //第几页
                             //设置分页(当前页,总页数)
                             $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
                         }
                     }
                 })
+            },
+            //编辑用户
+            updateUser : function (index) {
+                //alert(id);
+                //获取被单击用户的数据到缓存,然后跳转到用户添加页面，查看或者编辑用户信息
+                window.sessionStorage.setItem("data",JSON.stringify(vm.dataList[index]));
+                window.location.href="userAdd.html";
             }
         }
     })
