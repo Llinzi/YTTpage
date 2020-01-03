@@ -138,13 +138,8 @@
                                 <table class="table table-bordered table-sortable">
                                     <thead>
                                     <tr>
-                                        <th>
-                                            <div class="checkbox check-transparent">
-                                                <input type="checkbox" value="1" id="allchck">
-                                                <label for="allchck"></label>
-                                            </div>
-                                        </th>
-                                        <th class="sortable sort-alpha sort-asc">编号</th>
+                                        <th style="width: 60px;">序号</th>
+                                        <th class="sortable sort-alpha sort-asc" style="width: 80px;">编号</th>
                                         <th class="sort-alpha">姓名</th>
                                         <th class="sort-alpha">密码</th>
                                         <th class="sort-alpha">账号</th>
@@ -157,12 +152,7 @@
                                     </thead>
                                     <tbody>
                                     <tr v-for="(data,index) in dataList">
-                                        <td>
-                                            <div class="checkbox check-transparent">
-                                                <input type="checkbox" value="1" id="chck01">
-                                                <label for="chck01"></label>
-                                            </div>
-                                        </td>
+                                        <td>{{((params.currentPage-1)*params.pageSize)+(index + 1)}}</td>
                                         <td>{{data.userId}}</td>
                                         <td>{{data.userName}}</td>
                                         <td>{{data.userPwd}}</td>
@@ -176,7 +166,7 @@
                                         <td v-else><a href="#" class="check-toggler checked"></a></td>
                                         <td>
                                             <a title="修改"><i class="fa fa-edit fa-2x" aria-hidden="true" @click="updateUser(index)"></i></a>
-                                            <a title="删除"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                                            <a title="删除"><i class="fa fa-trash-o fa-2x" aria-hidden="true" @click="deleteUser(data.userId)"></i></a>
                                         </td>
                                     </tr>
 
@@ -296,6 +286,9 @@
                 }
             };
             $("#page").bootstrapPaginator(options);
+
+            //页面加载时执行查询用户方法
+            this.userQuery();
         },
         methods:{
             //查询用户相关信息
@@ -304,7 +297,7 @@
                     url:"http://localhost:9000/users/selectUser",
                     type:"GET",
                     dataType:"json",
-                    data: vm.params,
+                    data: this.params,
                     success:function (data) {
                         if (data.code === 0){
                             console.log(data);
@@ -319,10 +312,22 @@
             },
             //编辑用户
             updateUser : function (index) {
-                //alert(id);
                 //获取被单击用户的数据到缓存,然后跳转到用户添加页面，查看或者编辑用户信息
                 window.sessionStorage.setItem("data",JSON.stringify(vm.dataList[index]));
                 window.location.href="userAdd.html";
+            },
+            //删除用户
+            deleteUser : function (id) {
+                //alert(id);
+                var url = "http://localhost:9000/users/deleteUser?id="+id;
+                $.post(url,null,function (data) {
+                    if (data.code === 0){
+                        alert(data.msg);
+                        vm.userQuery();
+                    }else {
+                        alert(data.msg);
+                    }
+                });
             }
         }
     })

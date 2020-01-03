@@ -281,6 +281,7 @@
         mounted:function(){
             //页面加载时隐藏修改按钮
             $("#update").hide();
+            //加载页面时执行填充用户信息方法
             this.viewUser();
         },
         methods:{
@@ -299,7 +300,7 @@
                     contentType: false, //上传文件时改为 false
                     data:new FormData($("#userForm")[0]), //用 Ajax 上传文件，需要使用 FormData 对象来作为数据
                     success:function (data) {
-                        console.log(data);
+                        //console.log(data);
                         if(data.code === 0 ){
                             //绑定用户图片名称
                             vm.params.userHead = "http://localhost:9000/img/users/" + data.fileName + data.extendedName;
@@ -310,10 +311,12 @@
                                 contentType: 'application/json; charset=UTF-8',
                                 data: JSON.stringify(vm.params),
                                 success:function (data) {
-                                    console.log(data);
+                                    //console.log(data);
                                     if (data.code === 0){
                                         alert(data.msg);
                                         window.location.href="userQuery.html";
+                                    }else {
+                                        alert(data.msg);
                                     }
                                 }
                             });
@@ -321,10 +324,10 @@
                     }
                 });
             },
+            //填充用户信息方法
             viewUser : function () {
                 //从缓存中获得用户数据(因为我们使用了 JSON.stringify() 将 对象转换为 json 字符串 ，所以要用 JSON.parse() 把 json 转换为对象)
                 var userData = JSON.parse(window.sessionStorage.getItem("data"));
-                console.log(userData);
                 //判断用户数据是否为空
                 if( userData != null){
                     //把密码框修改为可见,然后隐藏确认密码框,把修改按钮显示，把保存按钮隐藏
@@ -362,9 +365,11 @@
                         contentType: 'application/json; charset=UTF-8',
                         data:JSON.stringify(vm.params),
                         success:function (data) {
-                            console.log(data);
+                            //console.log(data);
                             if (data.code === 0){
                                 alert(data.msg);
+                                window.sessionStorage.removeItem("data");
+                                window.location.href="userQuery.html";
                             }else {
                                 alert(data.msg);
                             }
@@ -393,7 +398,31 @@
                                contentType: false, //上传文件时改为 false
                                data:new FormData($("#userForm")[0]), //用 Ajax 上传文件，需要使用 FormData 对象来作为数据
                                success:function (data) {
+                                   //console.log(data);
                                    if (data.code === 0){
+                                       //alert(data.msg);
+                                       //3、修改用户相关信息
+                                       //绑定用户图片名称
+                                       vm.params.userHead = "http://localhost:9000/img/users/" + data.fileName + data.extendedName;
+                                       $.ajax({
+                                           url:"http://localhost:9000/users/updateUser",
+                                           type:"POST",
+                                           dataType:"json",
+                                           contentType: 'application/json; charset=UTF-8',
+                                           data: JSON.stringify(vm.params),
+                                           success:function (data) {
+                                               //console.log(data);
+                                               if (data.code === 0){
+                                                   alert(data.msg);
+                                                   //清除用户缓存信息
+                                                   window.sessionStorage.removeItem("data");
+                                                   window.location.href="userQuery.html";
+                                               }else {
+                                                   alert(data.msg);
+                                               }
+                                           }
+                                       });
+                                   }else {
                                        alert(data.msg);
                                    }
                                }
