@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>蔬菜查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/ico" href="assets/images/favicon.ico" />
+    <!-- Bootstrap -->
+    <link href="assets/css/vendor/bootstrap/bootstrap.min.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/4.1.0/css/font-awesome.min.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/vendor/animate/animate.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/animate/animate.css">
+    <link type="text/css" rel="stylesheet" media="all" href="assets/js/vendor/mmenu/css/jquery.mmenu.all.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/mmenu/css/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="assets/js/vendor/videobackground/css/jquery.videobackground.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/videobackground/css/jquery.videobackground.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap-checkbox.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/bootstrap-checkbox.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
+
+    <link rel="stylesheet" href="assets/js/vendor/chosen/css/chosen.min.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/chosen/css/chosen.min.css">
+    <link rel="stylesheet" href="assets/js/vendor/chosen/css/chosen-bootstrap.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/js/vendor/chosen/css/chosen-bootstrap.css">
+
+    <link href="assets/css/minimal.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/minimal.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../../../../../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" tppabs="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../../../../../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" tppabs="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="bg-1">
+
+<!-- Preloader -->
+<div class="mask"><div id="loader"></div></div>
+<!--/Preloader -->
+
+<!-- Wrap all page content here -->
+<div id="wrap">
+
+
+
+
+    <!-- Make page fluid -->
+    <div class="row">
+
+
+        <div id="menuContainer">
+
+        </div>
+
+
+
+
+
+
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+
+            <!-- content main container -->
+            <div class="main">
+                <!-- row -->
+                <div class="row">
+                    <!-- tile -->
+                    <section class="tile color transparent-black">
+                        <!-- tile header -->
+                        <div class="tile-header">
+                            <h1>蔬菜查询</h1>
+                            <div class="controls">
+                                <a href="#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+                                <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                        <!-- /tile header -->
+
+                        <!-- tile widget -->
+                        <div class="tile-widget bg-transparent-black-2">
+                            <div class="row">
+
+                                <div class="col-sm-2 col-xs-2">
+                                    <label>蔬菜名称</label>
+                                    <input type="text" class="form-control" style="width: 150px">
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                    <label>营养成份</label>
+                                    <input type="text" class="form-control" style="width: 150px">
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                    <label>类别</label>
+                                    <select class="form-control" style="width: 100px">
+                                        <option value="-1">请选择状态</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                    <label>选择条数</label>
+                                    <select class="form-control" style="width: 100px">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-3 col-xs-3">
+                                    <button  class="btn btn-primary" style="margin-top: 26px;">查询</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- /tile widget -->
+
+
+
+                        <!-- tile body -->
+                        <div class="tile-body nopadding">
+
+                            <table class="table table-bordered table-sortable">
+                                <thead>
+                                <tr>
+                                    <th style="width: 60px;">序号</th>
+                                    <th class="sortable sort-alpha sort-asc" style="width: 80px;">编号</th>
+                                    <th class="sort-alpha">姓名</th>
+                                    <th class="sort-alpha">密码</th>
+                                    <th class="sort-alpha">账号</th>
+                                    <th class="sortable sort-alpha" style="width: 60px;">年龄</th>
+                                    <th class="sort-alpha" style="width: 60px;">性别</th>
+                                    <th class="sort-alpha"style="width: 90px;">权限</th>
+                                    <th class="sort-alpha"style="width: 60px;">状态</th>
+                                    <th style="width: 80px;">编辑</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                        <!-- /tile body -->
+
+
+                        <!-- tile footer -->
+                        <div class="tile-footer bg-transparent-black-2 rounded-bottom-corners">
+                            <div class="row">
+
+                                <!-- <div class="col-sm-2">
+
+                                 </div>-->
+
+                                <!-- <div class="col-sm-4 text-center">
+                                     <small class="inline table-options paging-info">showing 1-3 of 24 items</small>
+                                 </div>-->
+
+                                <div class="text-center">
+                                    <div id="page"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /tile footer -->
+
+                    </section>
+                    <!-- /tile -->
+                </div>
+                <!-- /row -->
+
+            </div>
+            <!-- /content container -->
+        </div>
+        <!-- Page content end -->
+    </div>
+    <!-- Make page fluid-->
+</div>
+<!-- Wrap all page content end -->
+
+
+
+<section class="videocontent" id="video"></section>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/sparkline/jquery.sparkline.min.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/nicescroll/jquery.nicescroll.min.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
+<script type="text/javascript" src="assets/js/vendor/videobackground/jquery.videobackground.js" ></script>
+<script type="text/javascript" src="assets/js/vendor/blockui/jquery.blockUI.js" ></script>
+
+<script src="assets/js/vendor/chosen/chosen.jquery.min.js" ></script>
+
+<script src="assets/js/minimal.min.js"></script>
+<!--引入分页插件模板-->
+<script src="assets/js/bootstrap-paginator.js"></script>
+<script>
+    //页面加载时把导航菜单加载到相应位置
+    $("#menuContainer").load("navigationMenu.html");
+    //设置菜单缓存
+    window.sessionStorage.setItem("menu","vagetableQueryMenu");
+</script>
+<script>
+    var vm = new Vue({
+        el:"#content",
+        data:{
+
+        }
+    })
+</script>
+</body>
+</html>
