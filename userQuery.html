@@ -278,7 +278,7 @@
                     data: this.params,
                     success:function (data) {
                         if (data.code === 0){
-                            console.log(data);
+                            //console.log(data);
                             vm.dataList = data.dataList;//查询到的数据
                             vm.params.pages = data.pages;//总页数
                             vm.params.currentPage = data.pageNum //第几页
