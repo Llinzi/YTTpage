@@ -133,15 +133,17 @@
                                         <td>{{data.vid}}</td>
                                         <td><img v-bind:src="data.image" width="60px" height="40px"></td>
                                         <td>{{data.vname}}</td>
-                                        <td v-bind:title="data.vnickname">{{(data.vnickname).length > 15 ? (data.vnickname).substring(0,15) + '...':data.vnickname}}</td>
+                                        <td v-if="data.vnickname==null">{{data.vnickname}}</td>
+                                        <td v-else v-bind:title="data.vnickname">{{(data.vnickname).length > 15 ? (data.vnickname).substring(0,15) + '...':data.vnickname}}</td>
                                         <td>{{data.typeId}}</td>
                                         <td>{{data.eatWay}}</td>
-                                        <td v-bind:title="data.nutrients">{{data.nutrients.length > 15 ? (data.nutrients).substring(0,15) + '...':data.nutrients}}</td>
+                                        <td v-if="data.nutrients==null">{{data.nutrients}}</td>
+                                        <td v-else v-bind:title="data.nutrients">{{data.nutrients.length > 15 ? (data.nutrients).substring(0,15) + '...':data.nutrients}}</td>
                                         <td>{{data.varieties}}</td>
                                         <td>{{data.growingTime}}</td>
                                         <td>
-                                            <a title="编辑"><i class="fa fa-edit fa-2x" aria-hidden="true" ></i></a>
-                                            <a title="删除"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                                            <a @click="editVegetable(index)" title="编辑"><i class="fa fa-edit fa-2x" aria-hidden="true" ></i></a>
+                                            <a @click="deleteVegetabele(data.vid)" title="删除"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -260,10 +262,29 @@
                            vm.params.currentPage = data.pageNum //第几页
                            //设置分页(当前页,总页数)
                            $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
+                       }else {
+                           alert(data.msg);
                        }
                    }
                });
-           }
+           },
+            //编辑蔬菜信息
+            editVegetable:function (index) {
+                //把需要编辑的蔬菜信息放入缓存
+                window.sessionStorage.setItem("vegetable",JSON.stringify(this.dataList[index]));
+            },
+            //删除蔬菜信息
+            deleteVegetabele:function (id) {
+               var url = "http://localhost:9000/vegetableInfo/deleteVegetable?id=" + id;
+               $.post(url,null,function (data) {
+                    if (data.code === 0){
+                        alert(data.msg);
+                        vm.selectVegetable();
+                    }else{
+                        alert(data.msg);
+                    }
+               })
+            }
         }
     })
 </script>

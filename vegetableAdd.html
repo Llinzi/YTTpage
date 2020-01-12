@@ -7,7 +7,9 @@
 
     <link rel="icon" type="image/ico" href="assets/images/favicon.ico" />
     <!-- Bootstrap -->
-    <link href="assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrapValidator.min.css">
     <link href="font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/vendor/animate/animate.css" >
     <link type="text/css" rel="stylesheet" media="all" href="assets/js/vendor/mmenu/css/jquery.mmenu.all.css" >
@@ -75,12 +77,14 @@
                             <!-- /tile header -->
 
                             <!-- 蔬菜信息开始 -->
-                            <div class="tile-body">
+                            <form id="myForm">
+                                <div class="tile-body">
                                 <!--行开始-->
                                 <div class="row">
                                     <!--左边列开始（图片）-->
                                     <div class="col-md-3">
-                                        <img src="assets/images/haizei.jpg" width="310" height="260">
+                                        <img class="img" src="assets/images/haizei.jpg" width="298" height="223">
+                                        <input type="file" class="form-control" id="vegetablePhoto" name="vegetablePhoto">
                                     </div>
                                     <!--左边列结束（图片）-->
 
@@ -91,13 +95,13 @@
                                             <div class="form-group col-md-6">
                                                 <label class="col-sm-3 control-label" style="margin-left: -16px;">蔬菜名称</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" placeholder="请输入">
+                                                    <input v-model="params.vname" type="text" class="form-control" name="vName" placeholder="请输入">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="col-sm-3 control-label">蔬菜别称</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" placeholder="请输入">
+                                                    <input v-model="params.vnickname" type="text" class="form-control" name="vNickName" placeholder="请输入">
                                                 </div>
                                             </div>
                                         </div>
@@ -107,13 +111,17 @@
                                             <div class="form-group col-md-6">
                                                 <label class="col-sm-3 control-label" style="margin-left: -16px;">类别</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" placeholder="请输入">
+                                                    <select v-model="params.typeId" class="form-control" name="typeId" style="width: 200px">
+                                                        <option value="">请选择类别</option>
+                                                        <option value="1">菌类</option>
+                                                        <option value="2">叶类</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="col-sm-3 control-label">生长时间</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" placeholder="请输入">
+                                                    <input v-model="params.growingTime" type="text" class="form-control" name="growingTime" placeholder="请输入">
                                                 </div>
                                             </div>
                                         </div>
@@ -122,7 +130,7 @@
                                             <div class="form-group col-md-10">
                                                 <label class="col-sm-2 control-label" style="margin-left: -32px;">食用方式</label>
                                                 <div class="col-sm-8">
-                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    <textarea v-model="params.eatWay" class="form-control" name="eatWay" rows="2"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,7 +139,7 @@
                                             <div class="form-group col-md-10">
                                                 <label class="col-sm-2 control-label" style="margin-left: -32px;">营养成分</label>
                                                 <div class="col-sm-8">
-                                                    <textarea class="form-control" rows="4"></textarea>
+                                                    <textarea  v-model="params.nutrients" class="form-control" name="nutrients" rows="4"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +159,7 @@
                                             <div class="form-group col-md-11" style="margin-left: 0px;">
                                                 <label>主要价值</label>
                                                 <div>
-                                                    <textarea class="form-control" rows="6"></textarea>
+                                                    <textarea v-model="params.mainValue" class="form-control" name="mainValue" rows="6"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +168,7 @@
                                             <div class="form-group col-md-11" style="margin-left: 0px;">
                                                 <label>形态特征</label>
                                                 <div>
-                                                    <textarea class="form-control" rows="6"></textarea>
+                                                    <textarea v-model="params.characteristics" class="form-control" name="characteristics" rows="6"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,7 +177,7 @@
                                             <div class="form-group col-md-11" style="margin-left: 0px;">
                                                 <label>主要品种</label>
                                                 <div>
-                                                    <textarea class="form-control" rows="6"></textarea>
+                                                    <textarea v-model="params.varieties" class="form-control" name="varieties" rows="6"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +186,7 @@
                                             <div class="form-group col-md-11" style="margin-left: 0px;">
                                                 <label>生长环境</label>
                                                 <div>
-                                                    <textarea class="form-control" rows="6"></textarea>
+                                                    <textarea v-model="params.growingEnvironment" class="form-control" name="growingEnvironment" rows="6"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,7 +199,7 @@
                                             <div class="form-group col-md-11" >
                                                 <label>植物学史</label>
                                                 <div>
-                                                    <textarea class="form-control" rows="6"></textarea>
+                                                    <textarea v-model="params.plantHistory" class="form-control" name="plantHistory" rows="6"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -200,7 +208,7 @@
                                             <div class="form-group col-md-11" >
                                                 <label>分布范围</label>
                                                 <div>
-                                                    <textarea class="form-control" rows="6"></textarea>
+                                                    <textarea v-model="params.distribution" class="form-control" name="distribution" rows="6"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,7 +217,7 @@
                                             <div class="form-group col-md-11" >
                                                 <label>种植方式</label>
                                                 <div>
-                                                    <textarea class="form-control" rows="6"></textarea>
+                                                    <textarea v-model="params.plantingWay" class="form-control" name="plantingWay" rows="6"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -220,13 +228,14 @@
                                 <!--行结束-->
 
                                 <div class="row">
-                                    <div class="col-md-12" align="center">
-                                        <button type="button" class="btn btn-primary btn-lg margin-bottom-20">保存</button>
+                                    <div class="col-md-12 form-group" align="center">
+                                        <button type="button" name="submit" @click="submit()" class="btn btn-primary btn-lg margin-bottom-20">保存</button>
                                         <button type="button" class="btn btn-default btn-lg margin-bottom-20">返回</button>
                                     </div>
                                 </div>
                             <!-- 蔬菜信息结束 -->
                             </div>
+                            </form>
                         </section>
                         <!-- /tile -->
                     </div>
@@ -254,7 +263,8 @@
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/vue.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrapValidator.min.js"></script>
 <script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js" ></script>
 <script type="text/javascript" src="assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
 <script type="text/javascript" src="assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
@@ -270,7 +280,224 @@
     $("#menuContainer").load("navigationMenu.html");
     //设置菜单缓存
     window.sessionStorage.setItem("menu","userAddMenu");
-    /*显示图片*/
+    $(function () {
+        /* 重点是这个位置 */
+        $("#vegetablePhoto").change(function() {
+            /*在改变照片时，清空以前图片*/
+            $(".img").empty();
+            var oFReader = new FileReader();
+            var file = document.getElementById('vegetablePhoto').files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function(oFRevent){
+                var src = oFRevent.target.result;
+                $(".img").attr("src",src);
+            }
+        });
+    });
+</script>
+<script>
+
+    var vm = new Vue({
+       el:"#content",
+       data:{
+           params:{
+               image:null
+           }
+       },
+       mounted:function(){
+           //验证表单
+           $("#myForm").bootstrapValidator({
+               message: 'This value is not valid',
+               feedbackIcons: {
+                   valid: 'glyphicon glyphicon-ok',
+                   invalid: 'glyphicon glyphicon-remove',
+                   validating: 'glyphicon glyphicon-refresh'
+               },
+               fields:{
+                   vName: {
+                       message: '蔬菜名验证失败',
+                       validators:{
+                           notEmpty:{
+                               message:"蔬菜名不能为空"
+                           }
+                       }
+                   },
+
+                   vNickName:{
+                       message:'蔬菜昵称验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"蔬菜昵称不能为空"
+                           }
+                       }
+                   },
+
+                   //类别
+                   typeId: {
+                       message:'类别验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"类别不能为空"
+                           }
+                       }
+                   },
+
+                   //生长时间
+                   growingTime:{
+                       message:'生长时间验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"生长时间不能为空"
+                           }
+                       }
+                   },
+
+                   //食用方式
+                   eatWay:{
+                       message:'食用方式验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"食用方式不能为空"
+                           }
+                       }
+                   },
+
+                   //营养成分
+                   nutrients:{
+                       message:'营养成分验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"营养成分不能为空"
+                           }
+                       }
+                   },
+
+                   //主要价值
+                   mainValue:{
+                       message:'主要价值验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"主要价值不能为空"
+                           }
+                       }
+                   },
+
+                   //形态特征
+                   characteristics:{
+                       message:'形态特征验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"形态特征不能为空"
+                           }
+                       }
+                   },
+
+                   //主要品种
+                   varieties:{
+                       message:'主要品种验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"主要品种不能为空"
+                           }
+                       }
+                   },
+
+                   //生长环境
+                   growingEnvironment:{
+                       message:'生长环境验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"生长环境不能为空"
+                           }
+                       }
+                   },
+
+                   //植物学史
+                   plantHistory:{
+                       message:'植物学史验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"植物学史不能为空"
+                           }
+                       }
+                   },
+
+                   //分布范围
+                   distribution:{
+                       message:'分布范围验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"分布范围不能为空"
+                           }
+                       }
+                   },
+
+                   //种植方式
+                   plantingWay:{
+                       message:'种植方式验证失败',
+                       validators: {
+                           notEmpty: {
+                               message:"种植方式不能为空"
+                           }
+                       }
+                   }
+               },
+
+           });
+
+       },
+       methods:{
+
+           //添加蔬菜信息
+           submit:function () {
+               //手动验证表单
+               $("#myForm").data("bootstrapValidator").validate();
+               //获取表单验证状态
+               var flag = $("#myForm").data("bootstrapValidator").isValid();
+               //如果验证成功则添加用户信息
+               if(flag){
+                   //1.上传蔬菜图片
+                   $.ajax({
+                       url:"http://localhost:9000/upload/vegetableUpload",
+                       type:"POST",
+                       dataType:"json",
+                       cache:false,
+                       processData:false,
+                       contentType:false,
+                       data: new FormData($("#myForm")[0]),
+                       success:function (data) {
+                           if (data.code === 0){
+                               //获取上传成功的蔬菜图片名称
+                               vm.params.image = "http://localhost:9000/img/vegetable/"+ data.fileName + data.extendedName;
+                               //2、添加蔬菜信息
+                               $.ajax({
+                                   url:"http://localhost:9000/vegetableInfo/insertVegetable",
+                                   type: "POST",
+                                   dataType: "json",
+                                   contentType: 'application/json; charset=UTF-8',
+                                   data:JSON.stringify(vm.params),
+                                   success:function (data) {
+                                       if (data.code === 0){
+                                           alert(data.msg);
+                                       }else {
+                                           alert(data.msg);
+                                       }
+                                   }
+                               });
+                           }else {
+                               alert(data.msg);
+                           }
+                       }
+                   });
+               }else {
+                   alert("验证不通过");
+               }
+           }
+
+       }
+
+    });
+
 </script>
 </body>
 </html>

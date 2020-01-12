@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/js/vendor/chosen/css/chosen-bootstrap.css">
 
     <link href="assets/css/minimal.css" rel="stylesheet">
+    <link href="assets/css/bootstrapValidator.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -213,6 +214,9 @@
 <script src="assets/js/vue.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+
+<script src="assets/js/bootstrapValidator.min.js"></script>
+
 <script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js" ></script>
 <script type="text/javascript" src="assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
 <script type="text/javascript" src="assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
@@ -264,7 +268,7 @@
             },
         },
         mounted:function(){
-            $('#userForm').parsley().validate();
+            //$('#userForm').parsley().validate();
             //页面加载时隐藏修改按钮
             $("#update").hide();
             //加载页面时执行填充用户信息方法
