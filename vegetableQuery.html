@@ -272,6 +272,8 @@
             editVegetable:function (index) {
                 //把需要编辑的蔬菜信息放入缓存
                 window.sessionStorage.setItem("vegetable",JSON.stringify(this.dataList[index]));
+                //跳转到蔬菜添加页面
+                window.location.href = "vegetableAdd.html";
             },
             //删除蔬菜信息
             deleteVegetabele:function (id) {

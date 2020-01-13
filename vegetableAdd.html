@@ -83,7 +83,7 @@
                                 <div class="row">
                                     <!--左边列开始（图片）-->
                                     <div class="col-md-3">
-                                        <img class="img" src="assets/images/haizei.jpg" width="298" height="223">
+                                        <img class="img" src="" width="298" height="223">
                                         <input type="file" class="form-control" id="vegetablePhoto" name="vegetablePhoto">
                                     </div>
                                     <!--左边列结束（图片）-->
@@ -229,7 +229,8 @@
 
                                 <div class="row">
                                     <div class="col-md-12 form-group" align="center">
-                                        <button type="button" name="submit" @click="submit()" class="btn btn-primary btn-lg margin-bottom-20">保存</button>
+                                        <button type="button" name="submit" @click="submit()" class="btn btn-primary btn-lg margin-bottom-20 saveBtn">保存</button>
+                                        <button @click="updateVegetable()" type="button" class="btn btn-primary btn-lg margin-bottom-20 updataBtn">修改</button>
                                         <button type="button" class="btn btn-default btn-lg margin-bottom-20">返回</button>
                                     </div>
                                 </div>
@@ -301,10 +302,13 @@
        el:"#content",
        data:{
            params:{
+               vid:null,
                image:null
-           }
+           },
        },
        mounted:function(){
+           //隐藏修改按钮
+           $(".updataBtn").hide();
            //验证表单
            $("#myForm").bootstrapValidator({
                message: 'This value is not valid',
@@ -445,6 +449,8 @@
 
            });
 
+           this.showVegetable();
+
        },
        methods:{
 
@@ -491,6 +497,108 @@
                    });
                }else {
                    alert("验证不通过");
+               }
+           },
+
+           //显示蔬菜信息
+           showVegetable:function () {
+               if (sessionStorage.getItem("vegetable") !=null){
+                   //从缓存里拿到蔬菜详细信息,并放入相应的文本框类
+                   this.params = JSON.parse(window.sessionStorage.getItem("vegetable"));
+                   //显示图片
+                   $(".img").attr("src",this.params.image);
+                   //隐藏保存按钮，显示修改按钮
+                   $(".saveBtn").hide();
+                   $(".updataBtn").show();
+               }
+           },
+
+           //修改蔬菜信息
+           updateVegetable:function () {
+               //手动验证表单
+               $("#myForm").data("bootstrapValidator").validate();
+               //获取表单验证状态
+               var flag = $("#myForm").data("bootstrapValidator").isValid();
+               //如果验证成功则添加用户信息
+               if (flag){
+                   //判断用户是否修改了图片
+                   var vegetablePhoto = $("#vegetablePhoto").val();
+                   //如果没有修改图片，就只修改用户相关信息，不上传图片
+                   if( vegetablePhoto == ""){
+                       $.ajax({
+                           url:"http://localhost:9000/vegetableInfo/updateVegetable",
+                           type:"POST",
+                           dataType:"json",
+                           contentType: 'application/json; charset=UTF-8',
+                           data:JSON.stringify(vm.params),
+                           success:function (data) {
+                               //console.log(data);
+                               if (data.code === 0){
+                                   alert(data.msg);
+                                   window.sessionStorage.removeItem("vegetable");
+                                   window.location.href="vegetableQuery.html";
+                               }else {
+                                   alert(data.msg);
+                               }
+                           }
+                       });
+                   }else {
+                       /**
+                        * 1、如果修改了图片，先要删除本地图片
+                        * 2、删除成功后再上传新的图片到本地
+                        * 3、然后再修改用户相关信息
+                        */
+                           //1、删除图片
+                       var url = "http://localhost:9000/upload/deleteVegetablePhoto";
+                       var args = {
+                           "vegetablePhoto":vm.params.image
+                       }
+                       $.post(url,args,function (data) {
+                           if (data.code === 0){
+                               //2、上传图片
+                               $.ajax({
+                                   url:"http://localhost:9000/upload/vegetableUpload",
+                                   type:"POST", //请求方式
+                                   dataType:"json", //前端发送数据的格式
+                                   cache:false, //关闭缓存
+                                   processData: false, //默认情况下，processData 的值是 true，其代表以对象的形式上传的数据都会被转换为字符串的形式上传。而当上传文件的时候，则不需要把其转换为字符串，因此要改成false
+                                   contentType: false, //上传文件时改为 false
+                                   data:new FormData($("#myForm")[0]), //用 Ajax 上传文件，需要使用 FormData 对象来作为数据
+                                   success:function (data) {
+                                       //console.log(data);
+                                       if (data.code === 0){
+                                           //alert(data.msg);
+                                           //3、修改用户相关信息
+                                           //绑定用户图片名称
+                                           vm.params.image = "http://localhost:9000/img/vegetable/" + data.fileName + data.extendedName;
+                                           $.ajax({
+                                               url:"http://localhost:9000/vegetableInfo/updateVegetable",
+                                               type:"POST",
+                                               dataType:"json",
+                                               contentType: 'application/json; charset=UTF-8',
+                                               data: JSON.stringify(vm.params),
+                                               success:function (data) {
+                                                   //console.log(data);
+                                                   if (data.code === 0){
+                                                       alert(data.msg);
+                                                       //清除用户缓存信息
+                                                       window.sessionStorage.removeItem("vegetable");
+                                                       window.location.href="vegetableQuery.html";
+                                                   }else {
+                                                       alert(data.msg);
+                                                   }
+                                               }
+                                           });
+                                       }else {
+                                           alert(data.msg);
+                                       }
+                                   }
+                               });
+                           }else {
+                               alert(data.msg);
+                           }
+                       });
+                   }
                }
            }
 
