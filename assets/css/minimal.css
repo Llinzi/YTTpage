@@ -12248,6 +12248,10 @@ a.submit:hover {
   width: 35px !important;
 }
 
+.w200 {
+  width: 200px !important;
+}
+
 .w80 {
   width: 80px !important;
 }
