@@ -237,7 +237,7 @@
         /* 重点是这个位置 */
         $("#userHead").change(function() {
             /*在改变照片时，清空以前图片*/
-            $("#img").empty();
+            $(".img").empty();
             var oFReader = new FileReader();
             var file = document.getElementById('userHead').files[0];
             oFReader.readAsDataURL(file);

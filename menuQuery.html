@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>用户查询</title>
+    <title>菜谱查询</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
 
@@ -25,10 +25,6 @@
     <![endif]-->
 </head>
 <body class="bg-3">
-
-<!-- Preloader -->
-<div class="mask"><div id="loader"></div></div>
-<!--/Preloader -->
 
 <!-- Wrap all page content here -->
 <div id="wrap">
@@ -74,7 +70,7 @@
 
                                 <div class="col-sm-2 col-xs-2">
                                     <label>菜谱名称</label>
-                                    <input v-model="params.userName" type="text" class="form-control" style="width: 150px">
+                                    <input v-model="params.mName" type="text" class="form-control" style="width: 150px">
                                 </div>
                                 <div class="col-sm-2 col-xs-2">
                                     <label>选择条数</label>
@@ -86,7 +82,7 @@
                                 </div>
 
                                 <div class="col-sm-3 col-xs-3">
-                                    <button @click="userQuery()" class="btn btn-primary" style="margin-top: 26px;">查询</button>
+                                    <button @click="menuQuery()" class="btn btn-primary" style="margin-top: 26px;">查询</button>
                                 </div>
 
 
@@ -99,24 +95,33 @@
                         <!-- tile body -->
                         <div class="tile-body nopadding">
                             <div style="margin-left: 15px">
-                                <div class="row">
+                                <div v-for="(data,index) in dataList" class="row" style="margin-top: 10px">
                                     <div class="col-sm-2">
-                                        <img class="w200" src="assets/images/peter-avatar.jpg">
+                                        <a href="#modalImage" data-toggle="modal">
+                                            <img class="w200" v-bind:src="data.image">
+                                        </a>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <h3>菜谱名称</h3>
-                                        <h4>食材</h4>
-                                        <h4>上手难度:一般</h4>
+                                    <div class="col-sm-7">
+                                        <h3>{{data.mname}}</h3>
+                                        <h4>{{data.foodMaterial}}</h4>
+                                        <h4 v-if="data.level == 1">上手难度:⭐</h4>
+                                        <h4 v-else-if="data.level == 2">上手难度:⭐⭐</h4>
+                                        <h4 v-else="data.level == 3">上手难度:⭐⭐⭐</h4>
                                         <h4>
-                                            <span>发表人:小袁</span>&nbsp;
-                                            <span>发表时间:2020-01-30</span>
+                                            <span>发表人:{{data.userName}}</span>&nbsp;
+                                            <span>发表时间:{{(data.createTime).substring(0,10)}}</span>
                                         </h4>
-                                        <h4><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;时间</h4>
+                                        <h4><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{data.time}}</h4>
                                         <h4>
-                                            <i class="fa fa-star" aria-hidden="true"></i>&nbsp;<span>收藏数量</span>&nbsp;
-                                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;<span>点赞数量</span>&nbsp;
-                                            <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<span>评论数量</span>&nbsp;
+                                            <i class="fa fa-star" aria-hidden="true"></i>&nbsp;<span>{{data.collectionNum}}</span>&nbsp;
+                                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;<span>{{data.likeNum}}</span>&nbsp;
+                                            <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<span>{{data.discussNum}}</span>&nbsp;
                                         </h4>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a @click="menuInfo(data)" href="#modalMenu" role="button" class="btn btn-blue" data-toggle="modal" style="margin-top: 80px">
+                                            查看信息
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -143,6 +148,112 @@
 
             </div>
             <!-- /content container -->
+
+            <!--菜谱信息模态框开始-->
+            <div class="mm-page modal fade in" id="modalMenu" tabindex="-1" role="dialog" aria-labelledby="modalMenuLabel" aria-hidden="false" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+                            <h3 class="modal-title" id="modalMenuLabel">菜谱信息</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form">
+
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <img src="assets/images/peter-avatar.jpg" class="w200">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label>菜名</label>
+                                                <input v-model="menuData.mname" type="text" class="form-control" placeholder="这是一个占位符...">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label>上手难度</label>
+                                                <select v-model="menuData.level" class="form-control">
+                                                    <option value="1">⭐</option>
+                                                    <option value="2">⭐⭐</option>
+                                                    <option value="3">⭐⭐⭐</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label>发表人</label>
+                                                <input v-model="menuData.userName" type="text" class="form-control" placeholder="这是一个占位符...">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>发表时间</label>
+                                    <input v-model="menuData.createTime" type="text" class="form-control" placeholder="这是一个占位符...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>烹饪时间</label>
+                                    <input v-model="menuData.time" type="text" class="form-control" placeholder="这是一个占位符...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>所需食材</label>
+                                    <textarea v-model="menuData.foodMaterial" class="form-control" rows="3"></textarea>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>步骤</label>
+                                    <textarea class="form-control" rows="6"></textarea>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">关闭</button>
+                            <button class="btn btn-green">保存更改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--菜谱信息模态框结束-->
+
+            <!--菜谱图片框开始-->
+            <div class="mm-page modal fade in" id="modalImage" tabindex="-1" role="dialog" aria-labelledby="modalImageLabel" aria-hidden="false" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></button>
+                            <h3 class="modal-title" id="modalImageLabel">修改图片</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <img src="assets/images/peter-avatar.jpg" class="w200 img">
+                                    <input type="file" class="form-control" id="menuImage" name="menuPhoto">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">关闭</button>
+                            <button class="btn btn-green">保存更改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--菜谱图片框结束-->
+
         </div>
         <!-- Page content end -->
     </div>
@@ -178,6 +289,68 @@
     $("#menuContainer").load("navigationMenu.html");
     //设置菜单缓存
     window.sessionStorage.setItem("menu","menuQueryMenu");
+
+    $(function () {
+        /*显示图片*/
+        /* 重点是这个位置 */
+        $("#menuImage").change(function() {
+            /*在改变照片时，清空以前图片*/
+            $(".img").empty();
+            var oFReader = new FileReader();
+            var file = document.getElementById('menuImage').files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function(oFRevent){
+                var src = oFRevent.target.result;
+                $(".img").attr("src",src);
+                /*$("#img").append("<img src=\""+src+"\">");*/
+            }
+        });
+    });
+</script>
+<script>
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            params:{
+                mName:"",
+                pageSize:5,
+                currentPage:1, //当前页
+                pages:1 //总页数
+            },
+            dataList:[],
+            menuData:{},
+        },
+
+        mounted:function () {
+        },
+
+        methods:{
+            //菜谱查询
+            menuQuery:function () {
+                $.ajax({
+                    url:"http://localhost:9000/menu/selectMenu",
+                    type:"GET",
+                    dataType:"json",
+                    data:this.params,
+                    success:function (data) {
+                        console.log(data);
+                        if (data.code === 0){
+                            vm.dataList = data.dataList;
+                            vm.params.pages = data.pages;//总页数
+                            vm.params.currentPage = data.pageNum //第几页
+                        }
+                    }
+                });
+            },
+
+            //查看菜谱信息
+            menuInfo:function (menuData) {
+                console.log(menuData);
+                vm.menuData = menuData;
+            },
+        }
+
+    });
 </script>
 </body>
 </html>
