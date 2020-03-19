@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Safira - shop fullwidth list</title>
+    <title>菜谱信息</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -14,6 +14,7 @@
     ========================= -->
     <!--bootstrap min css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrapValidator.min.css">
     <!--owl carousel min css-->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <!--slick min css-->
@@ -45,274 +46,10 @@
 
 <body>
 
-   <!--header area start-->
-    
-    <!--offcanvas menu area start-->
-    <div class="off_canvars_overlay">
-                
-    </div>
-    <div class="offcanvas_menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="canvas_open">
-                        <a href="javascript:void(0)"><i class="icon-menu"></i></a>
-                    </div>
-                    <div class="offcanvas_menu_wrapper">
-                        <div class="canvas_close">
-                            <a href="javascript:void(0)"><i class="icon-x"></i></a>  
-                        </div>
-                        <div class="language_currency">
-                            <ul>
-                                <li class="language"><a href="#"> Language <i class="icon-right ion-ios-arrow-down"></i></a>
-                                    <ul class="dropdown_language">
-                                        <li><a href="#">French</a></li>
-                                        <li><a href="#">Spanish</a></li>
-                                        <li><a href="#">Russian</a></li>
-                                    </ul>
-                                </li>
-                                <li class="currency"><a href="#"> Currency <i class="icon-right ion-ios-arrow-down"></i></a>
-                                    <ul class="dropdown_currency">
-                                        <li><a href="#">€ Euro</a></li>
-                                        <li><a href="#">£ Pound Sterling</a></li>
-                                        <li><a href="#">$ US Dollar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="header_social text-right">
-                            <ul>
-                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                <li><a href="#"><i class="ion-social-googleplus-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="search_container">
-                           <form action="#">
-                               <div class="hover_category">
-                                    <select class="select_option" name="select" id="categori1">
-                                        <option selected value="1">Select a categories</option>
-                                        <option value="2">Accessories</option>
-                                        <option value="3">Accessories & More</option>
-                                        <option value="4">Butters & Eggs</option>
-                                        <option value="5">Camera & Video </option>
-                                        <option value="6">Mornitors</option>
-                                        <option value="7">Tablets</option>
-                                        <option value="8">Laptops</option>
-                                        <option value="9">Handbags</option>
-                                        <option value="10">Headphone & Speaker</option>
-                                        <option value="11">Herbs & botanicals</option>
-                                        <option value="12">Vegetables</option>
-                                        <option value="13">Shop</option>
-                                        <option value="14">Laptops & Desktops</option>
-                                        <option value="15">Watchs</option>
-                                        <option value="16">Electronic</option>
-                                    </select>                        
-                               </div>
-                                <div class="search_box">
-                                    <input placeholder="Search product..." type="text">
-                                     <button type="submit"><span class="lnr lnr-magnifier"></span></button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="header_account_area">
-                            <div class="header_account_list register">
-                                <ul>
-                                    <li><a href="login.html">Register</a></li>
-                                    <li><span>/</span></li>
-                                    <li><a href="login.html">Login</a></li>
-                                </ul>
-                            </div>
-                            <div class="header_account_list header_wishlist">
-                                <a href="wishlist.html"><span class="lnr lnr-heart"></span> <span class="item_count">3</span> </a>
-                            </div>
-                            <div class="header_account_list  mini_cart_wrapper">
-                               <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count">2</span></a>
-                                <!--mini cart-->
-                                <div class="mini_cart">
-                                    <div class="cart_gallery">
-                                        <div class="cart_item">
-                                           <div class="cart_img">
-                                               <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
-                                           </div>
-                                            <div class="cart_info">
-                                                <a href="#">Primis In Faucibus</a>
-                                                <p>1 x <span> $65.00 </span></p>    
-                                            </div>
-                                            <div class="cart_remove">
-                                                <a href="#"><i class="icon-x"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="cart_item">
-                                           <div class="cart_img">
-                                               <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
-                                           </div>
-                                            <div class="cart_info">
-                                                <a href="#">Letraset Sheets</a>
-                                                <p>1 x <span> $60.00 </span></p>    
-                                            </div>
-                                            <div class="cart_remove">
-                                                <a href="#"><i class="icon-x"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mini_cart_table">
-                                        <div class="cart_table_border">
-                                            <div class="cart_total">
-                                                <span>Sub total:</span>
-                                                <span class="price">$125.00</span>
-                                            </div>
-                                            <div class="cart_total mt-10">
-                                                <span>total:</span>
-                                                <span class="price">$125.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mini_cart_footer">
-                                       <div class="cart_button">
-                                            <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
-                                        </div>
-                                        <div class="cart_button">
-                                            <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!--mini cart end-->
-                           </div>
-                        </div>
-                        <div class="call-support">
-                            <p><a href="tel:(08)23456789">(08) 23 456 789</a> Customer Support</p>
-                        </div>
-                        <div id="menu" class="text-left ">
-                            <ul class="offcanvas_main_menu">
-                                <li class="menu-item-has-children active">
-                                    <a href="#">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Home 1</a></li>
-                                        <li><a href="index-2.html">Home 2</a></li>
-                                        <li><a href="index-3.html">Home 3</a></li>
-                                        <li><a href="index-4.html">Home 4</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Shop</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Shop Layouts</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="shop.html">shop</a></li>
-                                                <li><a href="vegetable-select.html">Full Width</a></li>
-                                                <li><a href="menu-select.html">Full Width list</a></li>
-                                                <li><a href="shop-right-sidebar.html">Right Sidebar </a></li>
-                                                <li><a href="shop-right-sidebar-list.html"> Right Sidebar list</a></li>
-                                                <li><a href="shop-list.html">List View</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">other Pages</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="cart.html">cart</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="my-account.html">my account</a></li>
-                                                <li><a href="404.html">Error 404</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Product Types</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="vegetable-details.html">product details</a></li>
-                                                <li><a href="product-sidebar.html">product sidebar</a></li>
-                                                <li><a href="product-grouped.html">product grouped</a></li>
-                                                <li><a href="variable-product.html">product variable</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">blog</a></li>
-                                        <li><a href="menu-details.html">blog details</a></li>
-                                        <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                        <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                    </ul>
-
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">pages </a>
-                                    <ul class="sub-menu">
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="services.html">services</a></li>
-                                        <li><a href="faq.html">Frequently Questions</a></li>
-                                        <li><a href="contact.html">contact</a></li>
-                                        <li><a href="login.html">login</a></li>
-                                        <li><a href="404.html">Error 404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="my-account.html">my account</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="about.html">about Us</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="contact.html"> Contact Us</a> 
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="offcanvas_footer">
-                            <span><a href="#"><i class="fa fa-envelope-o"></i> info@yourdomain.com</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--offcanvas menu area end-->
-    
+    <!--header area start-->
+    <div id="headerApp">
     <header>
         <div class="main_header">
-            <div class="header_top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="language_currency">
-                                <ul>
-                                    <li class="language"><a href="#"> Language <i class="icon-right ion-ios-arrow-down"></i></a>
-                                        <ul class="dropdown_language">
-                                            <li><a href="#">French</a></li>
-                                            <li><a href="#">Spanish</a></li>
-                                            <li><a href="#">Russian</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="currency"><a href="#"> Currency <i class="icon-right ion-ios-arrow-down"></i></a>
-                                        <ul class="dropdown_currency">
-                                            <li><a href="#">€ Euro</a></li>
-                                            <li><a href="#">£ Pound Sterling</a></li>
-                                            <li><a href="#">$ US Dollar</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="header_social text-right">
-                                <ul>
-                                    <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-googleplus-outline"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="header_middle">
                 <div class="container">
                     <div class="row align-items-center">
@@ -323,99 +60,61 @@
                         </div>
                         <div class="col-lg-10">
                             <div class="header_right_info">
-                                <div class="search_container">
-                                   <form action="#">
-                                       <div class="hover_category">
-                                            <select class="select_option" name="select" id="categori2">
-                                                <option selected value="1">Select a categories</option>
-                                                <option value="2">Accessories</option>
-                                                <option value="3">Accessories & More</option>
-                                                <option value="4">Butters & Eggs</option>
-                                                <option value="5">Camera & Video </option>
-                                                <option value="6">Mornitors</option>
-                                                <option value="7">Tablets</option>
-                                                <option value="8">Laptops</option>
-                                                <option value="9">Handbags</option>
-                                                <option value="10">Headphone & Speaker</option>
-                                                <option value="11">Herbs & botanicals</option>
-                                                <option value="12">Vegetables</option>
-                                                <option value="13">Shop</option>
-                                                <option value="14">Laptops & Desktops</option>
-                                                <option value="15">Watchs</option>
-                                                <option value="16">Electronic</option>
-                                            </select>                        
-                                       </div>
+                                <!--<div class="search_container">
+                                    <form action="#">
+                                        <div class="hover_category">
+                                            <select class="select_option">
+                                                &lt;!&ndash;<option value="vegetable">蔬菜</option>&ndash;&gt;
+                                                <option value="menu">菜谱</option>
+                                            </select>
+                                        </div>
                                         <div class="search_box">
-                                            <input placeholder="Search product..." type="text">
-                                             <button type="submit"><span class="lnr lnr-magnifier"></span></button>
+                                            <input v-model="selectInfo" placeholder="搜索内容..." type="text">
+                                            <button type="button" @click="menuSelect()"><span class="lnr lnr-magnifier"></span></button>
                                         </div>
                                     </form>
-                                </div>
+                                </div>-->
                                 <div class="header_account_area">
                                     <div class="header_account_list register">
                                         <ul>
-                                            <li><a href="login.html">Register</a></li>
+                                            <li><a href="login.html">注册</a></li>
                                             <li><span>/</span></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="login.html">登录</a></li>
                                         </ul>
                                     </div>
                                     <div class="header_account_list header_wishlist">
-                                        <a href="wishlist.html"><span class="lnr lnr-heart"></span> <span class="item_count">3</span> </a>
+                                        <a href="wishlist.html"><span class="lnr lnr-star"></span> <span class="item_count">3</span> </a>
                                     </div>
+                                    <!--用户头像-->
                                     <div class="header_account_list  mini_cart_wrapper">
-                                       <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count">2</span></a>
+                                        <a href="javascript:void(0)"><span class="lnr lnr-user"></span></a>
                                         <!--mini cart-->
                                         <div class="mini_cart">
                                             <div class="cart_gallery">
                                                 <div class="cart_item">
-                                                   <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
-                                                   </div>
+                                                    <div class="cart_img">
+                                                        <a href="#" data-toggle="modal" data-target="#modal_head"><img src="assets/img/s-product/product.jpg" title="点击更换头像"></a>
+                                                    </div>
                                                     <div class="cart_info">
-                                                        <a href="#">Primis In Faucibus</a>
-                                                        <p>1 x <span> $65.00 </span></p>    
-                                                    </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart_item">
-                                                   <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
-                                                   </div>
-                                                    <div class="cart_info">
-                                                        <a href="#">Letraset Sheets</a>
-                                                        <p>1 x <span> $60.00 </span></p>    
-                                                    </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mini_cart_table">
-                                                <div class="cart_table_border">
-                                                    <div class="cart_total">
-                                                        <span>Sub total:</span>
-                                                        <span class="price">$125.00</span>
-                                                    </div>
-                                                    <div class="cart_total mt-10">
-                                                        <span>total:</span>
-                                                        <span class="price">$125.00</span>
+                                                        <p><span>名称:{{userInfo.userName}}</span></p>
+                                                        <p style="margin-top: -10px"><span>性别:{{userInfo.userSex}}</span></p>
+                                                        <p style="margin-top: -10px"><span>电话:{{userInfo.userPhone}}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mini_cart_footer">
-                                               <div class="cart_button">
-                                                    <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
+                                                <div class="cart_button">
+                                                    <a href="#" data-toggle="modal" data-target="#modal_userInfo"><i class="fa fa-cog"></i>设置用户信息</a>
                                                 </div>
                                                 <div class="cart_button">
-                                                    <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
+                                                    <a href="login.html"><i class="fa fa-sign-out"></i>退出登录</a>
                                                 </div>
 
                                             </div>
                                         </div>
                                         <!--mini cart end-->
-                                   </div>
+                                    </div>
+                                    <!--/用户头像-->
                                 </div>
                             </div>
                         </div>
@@ -423,52 +122,16 @@
                 </div>
             </div>
             <div class="header_bottom sticky-header">
-                <div class="container">  
+                <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <div class="categories_menu">
                                 <div class="categories_title">
-                                    <h2 class="categori_toggle">All Cattegories</h2>
+                                    <h2 class="categori_toggle">蔬菜分类</h2>
                                 </div>
                                 <div class="categories_menu_toggle">
                                     <ul>
-                                        <li class="menu_item_children"><a href="#">Vegetables<i class="fa fa-angle-right"></i></a>
-                                            <ul class="categories_mega_menu">
-                                                <li class="menu_item_children"><a href="#">Dresses</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Sweater</a></li>
-                                                        <li><a href="">Evening</a></li>
-                                                        <li><a href="">Day</a></li>
-                                                        <li><a href="">Sports</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Handbags</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Shoulder</a></li>
-                                                        <li><a href="">Satchels</a></li>
-                                                        <li><a href="">kids</a></li>
-                                                        <li><a href="">coats</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">shoes</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Ankle Boots</a></li>
-                                                        <li><a href="">Clog sandals </a></li>
-                                                        <li><a href="">run</a></li>
-                                                        <li><a href="">Books</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu_item_children"><a href="#">Clothing</a>
-                                                    <ul class="categorie_sub_menu">
-                                                        <li><a href="">Coats  Jackets </a></li>
-                                                        <li><a href="">Raincoats</a></li>
-                                                        <li><a href="">Jackets</a></li>
-                                                        <li><a href="">T-shirts</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu_item_children"><a href="#">Fruits  <i class="fa fa-angle-right"></i></a>
+                                        <li class="menu_item_children"><a href="#">蔬菜分类1<i class="fa fa-angle-right"></i></a>
                                             <ul class="categories_mega_menu column_3">
                                                 <li class="menu_item_children"><a href="#">Chair</a>
                                                     <ul class="categorie_sub_menu">
@@ -496,7 +159,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="menu_item_children"><a href="#"> Salads<i class="fa fa-angle-right"></i></a>
+                                        <li class="menu_item_children"><a href="#">蔬菜分类2<i class="fa fa-angle-right"></i></a>
                                             <ul class="categories_mega_menu column_2">
                                                 <li class="menu_item_children"><a href="#">Brake Tools</a>
                                                     <ul class="categorie_sub_menu">
@@ -516,7 +179,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="menu_item_children"><a href="#"> Fish & Seafood <i class="fa fa-angle-right"></i></a>
+                                        <li class="menu_item_children"><a href="#">蔬菜分类3<i class="fa fa-angle-right"></i></a>
                                             <ul class="categories_mega_menu column_2">
                                                 <li class="menu_item_children"><a href="#">Check Trousers</a>
                                                     <ul class="categorie_sub_menu">
@@ -537,17 +200,10 @@
                                             </ul>
                                         </li>
                                         <li><a href="#"> Fresh Meat</a></li>
-                                        <li><a href="#"> Butter & Eggs</a></li>
-                                        <li><a href="#">Milk</a></li>
-                                        <li><a href="#">Oil & Vinegars</a></li>
-                                        <li><a href="#"> Bread</a></li>
-                                        <li><a href="#"> Jam & Honey</a></li>
-                                        <li><a href="#"> Frozen Food</a></li>
-                                        <li id="cat_toggle" class="has-sub"><a href="#">  More Items</a>
+                                        <li id="cat_toggle" class="has-sub"><a href="#">更多</a>
                                             <ul class="categorie_sub">
                                                 <li><a href="#">Hide Categories</a></li>
-                                            </ul>   
-
+                                            </ul>
                                         </li>
                                     </ul>
                                 </div>
@@ -555,70 +211,41 @@
                         </div>
                         <div class="col-lg-6">
                             <!--main menu start-->
-                            <div class="main_menu menu_position"> 
-                                <nav>  
+                            <div class="main_menu menu_position">
+                                <nav>
                                     <ul>
-                                        <li><a  href="index.html">home<i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub_menu">
-                                                <li><a href="index.html">Home shop 1</a></li>
-                                                <li><a href="index-2.html">Home shop 2</a></li>
-                                                <li><a href="index-3.html">Home shop 3</a></li>
-                                                <li><a href="index-4.html">Home shop 4</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega_items"><a class="active" href="shop.html">shop<i class="fa fa-angle-down"></i></a> 
+                                        <li><a href="index.html">首页</a></li>
+                                        <li><a href="vegetable-select.html">蔬菜</a></li>
+                                        <li><a class="active" href="menu-select.html">菜谱</a></li>
+                                        <li class="mega_items"><a href="">信息<i class="fa fa-angle-down"></i></a>
                                             <div class="mega_menu">
                                                 <ul class="mega_menu_inner">
-                                                    <li><a href="#">Shop Layouts</a>
+                                                    <li><a href="#">其他页面</a>
                                                         <ul>
-                                                            <li><a href="vegetable-select.html">Full Width</a></li>
-                                                            <li><a href="menu-select.html">Full Width list</a></li>
-                                                            <li><a href="shop-right-sidebar.html">Right Sidebar </a></li>
-                                                            <li><a href="shop-right-sidebar-list.html"> Right Sidebar list</a></li>
-                                                            <li><a href="shop-list.html">List View</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">other Pages</a>
-                                                        <ul>
-                                                            <li><a href="cart.html">cart</a></li>
-                                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                                            <li><a href="checkout.html">Checkout</a></li>
-                                                            <li><a href="my-account.html">my account</a></li>
+                                                            <li><a href="collection.html">购物车</a></li>
                                                             <li><a href="404.html">Error 404</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="#">Product Types</a>
+                                                    <li><a href="#">详情</a>
                                                         <ul>
-                                                            <li><a href="vegetable-details.html">product details</a></li>
-                                                            <li><a href="product-sidebar.html">product sidebar</a></li>
-                                                            <li><a href="product-grouped.html">product grouped</a></li>
-                                                            <li><a href="variable-product.html">product variable</a></li>
-
+                                                            <li><a href="vegetable-details.html">蔬菜详情</a></li>
+                                                            <li><a href="menu-details.html">菜谱详情</a></li>
                                                         </ul>
+
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
+                                        <li><a href="#">页面<i class="fa fa-angle-down"></i></a>
                                             <ul class="sub_menu pages">
-                                                <li><a href="menu-details.html">blog details</a></li>
-                                                <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                                <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub_menu pages">
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="services.html">services</a></li>
-                                                <li><a href="faq.html">Frequently Questions</a></li>
-                                                <li><a href="contact.html">contact</a></li>
-                                                <li><a href="login.html">login</a></li>
+                                                <li><a href="about.html">关于我们</a></li>
+                                                <li><a href="services.html">服务</a></li>
+                                                <li><a href="login.html">登录</a></li>
                                                 <li><a href="404.html">Error 404</a></li>
                                             </ul>
-                                        </li> 
-                                        <li><a href="contact.html"> Contact Us</a></li>
-                                    </ul>  
-                                </nav> 
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                             <!--main menu end-->
                         </div>
@@ -630,21 +257,114 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </header>
+
+    <!-- 用户信息模态框开始-->
+    <div class="modal fade" id="modal_userInfo" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-x"></i></span>
+                </button>
+                <div class="modal_body">
+                    <div class="container">
+                        <div class="row" style="margin-left: 15%">
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                <div class="modal_right">
+                                    <div class="modal_title mb-10">
+                                        <h2>设置用户信息</h2>
+                                    </div>
+                                    <div class="variants_selects">
+                                        <form id="userInfoForm">
+                                            <div class="variants_size form-group">
+                                                <h2>名称</h2>
+                                                <input v-model="userInfo.userName" name="userName" type="text" class="form-control"/>
+                                            </div>
+                                            <div class="row" style="margin-top: 15px">
+                                                <div class="col-6">
+                                                    <div class="variants_color form-group">
+                                                        <h2>性别</h2>
+                                                        <select v-model="userInfo.userSex" name="userSex" class="form-control">
+                                                            <option selected value="0">男</option>
+                                                            <option value="1">女</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="variants_color form-group">
+                                                        <h2>年龄</h2>
+                                                        <input v-model="userInfo.userAge" name="userAge" type="text" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="variants_size" style="margin-top: 15px">
+                                                <h2>手机号</h2>
+                                                <input v-model="userInfo.userPhone" disabled="disabled" type="text" class="form-control"/>
+                                            </div>
+
+                                            <div class="variants_size form-group" style="margin-top: 15px">
+                                                <h2>邮箱</h2>
+                                                <input v-model="userInfo.userEmail" name="userEmail" type="text" class="form-control"/>
+                                            </div>
+
+                                            <div style="margin-top: 25px">
+                                                <button @click="saveUser()" type="button" class="btn-primary" style="margin-left: 40%">保存</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 用户信息模态框结束-->
+
+    <!-- 修改头像模态框开始-->
+    <div class="modal fade" id="modal_head" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-x"></i></span>
+                </button>
+                <div class="modal_body">
+                    <div class="container">
+                        <div class="modal_tab">
+                            <div class="tab-content product-details-large">
+                                <div class="tab-pane fade show active" role="tabpanel" >
+                                    <div class="modal_tab_img">
+                                        <a href="#"><img src="assets/img/product/productbig1.jpg" alt="" style="width: 200px;height: 200px"></a>
+                                    </div>
+                                    <div class="modal_tab_img">
+                                        <input type="file" class="form-control" style="width: 50%;margin-left: 25%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 修改模态框结束-->
+    </div>
     <!--header area end-->
 
-    
+    <div id="menuInfo">
     <!--breadcrumbs area start-->
     <div class="breadcrumbs_area">
         <div class="container">   
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
-                        <h3>Shop</h3>
+                        <h3>菜谱查询</h3>
                         <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li>shop</li>
+                            <li><a href="index.html">首页</a></li>
+                            <li>菜谱</li>
                         </ul>
                     </div>
                 </div>
@@ -662,602 +382,72 @@
                     <!--shop toolbar start-->
                     <div class="shop_toolbar_wrapper">
                         <div class="shop_toolbar_btn">
-
-                            <button data-role="grid_3" type="button" class=" btn-grid-3" data-toggle="tooltip" title="3"></button>
-
-                            <button data-role="grid_4" type="button"  class=" btn-grid-4" data-toggle="tooltip" title="4"></button>
-
-                            <button data-role="grid_list" type="button"  class="active btn-list" data-toggle="tooltip" title="List"></button>
-                        </div>
-                        <div class=" niceselect_option">
-                            <form class="select_option" action="#">
-                                <select name="orderby" id="short">
-
-                                    <option selected value="1">Sort by average rating</option>
-                                    <option  value="2">Sort by popularity</option>
-                                    <option value="3">Sort by newness</option>
-                                    <option value="4">Sort by price: low to high</option>
-                                    <option value="5">Sort by price: high to low</option>
-                                    <option value="6">Product Name: Z</option>
-                                </select>
-                            </form>
+                            <div class="search_container">
+                                <form action="#">
+                                    <div class="search_box">
+                                        <input v-model="params.mName" placeholder="搜索内容..." type="text">
+                                        <button type="button" @click="menuSelect()"><span class="lnr lnr-magnifier"></span></button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div class="page_amount">
-                            <p>Showing 1–9 of 21 results</p>
+                            <p>共 {{params.pages}} 页 {{total}} 条数据 </p>
                         </div>
                     </div>
                      <!--shop toolbar end-->
                      <div class="row shop_wrapper grid_list">
-                        <div class="col-12 ">
+                        <div class="col-12 " v-for="(data,index) in dataList">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig1.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig2.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
+                                    <a class="primary_img" @click="menuDetails(data)"><img v-bind:src="data.image" style="width: 350px;height: 300px;"></a>
+                                    <div class="label_product">
+                                        <span class="label_sale">Sale</span>
+                                        <span class="label_new">New</span>
                                     </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Aliquam Consequat</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
+                                    <div class="action_links">
+                                        <ul>
+                                            <li class="add_to_cart"><a href="collection.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                            <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
+                                            <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                        </ul>
                                     </div>
+                                </div>
                                 <div class="product_content list_content">
-                                    <h4 class="product_name"><a href="vegetable-details.html">Aliquam Consequat</a></h4>
-                                    <p><a href="#">Fruits</a></p>
-                                    <div class="price_box"> 
-                                        <span class="current_price">$26.00</span>
-                                        <span class="old_price">$362.00</span>
+                                    <h4 class="product_name"><a href="menu-details.html">{{data.mname}}</a></h4>
+                                    <p style="color: #0AA699;font-size: 15px">发表人:{{data.userName}}</p>
+                                    <div class="price_box">
+                                        <span class="current_price" v-if="data.level == 1">难度:⭐</span>
+                                        <span class="current_price" v-else-if="data.level == 2">难度:⭐⭐</span>
+                                        <span class="current_price" v-else-if="data.level == 3">难度:⭐⭐⭐</span>
+                                    </div>
+
+                                    <div class="price_box">
+                                        <span class="current_price">烹饪时间:{{data.time}}</span>
+                                    </div>
+                                    <div class="price_box">
+                                        <span class="current_price">发表时间:{{(data.createTime).substring(0,10)}}</span>
                                     </div>
                                     <div class="product_desc">
-                                        <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
+                                        <p>所需食材:{{data.foodMaterial}}</p>
                                     </div>
                                     <div class="action_links list_action_right">
                                         <ul>
-                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                             <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                            <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                            <li><a @click="collection(data.mid)" title="收藏"><span class="lnr lnr-star" style="font-size: 23px"></span></a> <span class="item_count">{{data.collectionNum}}</span></li>
+                                            <li><a @click="operation(data.mid,2)" title="点赞"><span class="lnr lnr-thumbs-up" style="font-size: 23px"></span></a> <span class="item_count">{{data.likeNum}}</span></li>
+                                            <li><a @click="menuDetails(data)" title="评论"><span class="lnr lnr-bubble" style="font-size: 23px"></span></a> <span class="item_count">{{data.discussNum}}</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig3.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig4.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Cas Meque Metus</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$32.00</span>
-                                            <span class="old_price">$342.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Cas Meque Metus</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$32.00</span>
-                                            <span class="old_price">$342.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig5.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig6.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Donec Ac Tempus</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$46.00</span>
-                                            <span class="old_price">$322.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Donec Ac Tempus</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig7.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig8.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Donec Non Est</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$28.00</span>
-                                            <span class="old_price">$382.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Donec Non Est</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig9.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig10.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Etiam Gravida</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Etiam Gravida</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig11.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig12.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Fusce Aliquam</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$36.00</span>
-                                            <span class="old_price">$332.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Fusce Aliquam</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig13.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig14.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Letraset Sheets</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$56.00</span>
-                                            <span class="old_price">$286.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Letraset Sheets</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$56.00</span>
-                                            <span class="old_price">$286.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig2.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig1.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Lorem Ipsum Lec</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Lorem Ipsum Lec</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig4.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig3.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Mauris Vel Tellus</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$65.00</span>
-                                            <span class="old_price">$292.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Mauris Vel Tellus</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$65.00</span>
-                                            <span class="old_price">$292.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig6.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig5.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Nunc Neque Eros</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Nunc Neque Eros</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig8.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig7.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Proin Lectus Ipsum</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$44.00</span>
-                                            <span class="old_price">$332.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Proin Lectus Ipsum</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$44.00</span>
-                                            <span class="old_price">$332.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="single_product">
-                                <div class="product_thumb">
-                                        <a class="primary_img" href="vegetable-details.html"><img src="assets/img/product/productbig10.jpg" alt=""></a>
-                                        <a class="secondary_img" href="vegetable-details.html"><img src="assets/img/product/productbig9.jpg" alt=""></a>
-                                        <div class="label_product">
-                                            <span class="label_sale">Sale</span>
-                                            <span class="label_new">New</span>
-                                        </div>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="vegetable-details.html">Quisque In Arcu</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                    </div>
-                                <div class="product_content list_content">
-                                       <h4 class="product_name"><a href="vegetable-details.html">Quisque In Arcu</a></h4>
-                                        <p><a href="#">Fruits</a></p>
-                                        <div class="price_box"> 
-                                            <span class="current_price">$26.00</span>
-                                            <span class="old_price">$362.00</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva..</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to Cart</a></li>
-                                                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
-                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>  
-                                                <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="shop_toolbar t_bottom">
-                        <div class="pagination">
-                            <ul>
-                                <li class="current">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="next"><a href="#">next</a></li>
-                                <li><a href="#">>></a></li>
-                            </ul>
-                        </div>
+                        <ul id="page">
+
+                        </ul>
                     </div>
                     <!--shop toolbar end-->
                     <!--shop wrapper end-->
@@ -1471,16 +661,20 @@
         </div>
     </div>
     <!-- modal area end-->
-
+    </div>
 
 <!-- JS
 ============================================ -->
 <!--jquery min js-->
 <script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+<!--vue js-->
+<script src="assets/js/vendor/vue.js"></script>
 <!--popper min js-->
 <script src="assets/js/popper.js"></script>
 <!--bootstrap min js-->
 <script src="assets/js/bootstrap.min.js"></script>
+<!--bootstrapValidator-->
+<script src="assets/js/vendor/bootstrapValidator.min.js"></script>
 <!--owl carousel min js-->
 <script src="assets/js/owl.carousel.min.js"></script>
 <!--slick min js-->
@@ -1504,9 +698,11 @@
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
-
-
+<script src="assets/js/vendor/bootstrap-paginator.js"></script>
 
 </body>
+<!--自定义js-->
+<script src="assets/js/custom/header.js"></script>
+<script src="assets/js/custom/menuSelect.js"></script>
 
 </html>

@@ -571,11 +571,21 @@
             bootstrapMajorVersion: 2,
             listContainerClass: "",
             itemContainerClass: function (type, page, current) {
+                return (page === current) ? "page-item active" : "page-item";
+            },
+            itemContentClass: function (type, page, current) {
+                return "page-link";
+            },
+            /*由于bootstrap4不支持bootstrap-paginator样式，所以这里修改了
+            * 下面是原代码
+            itemContainerClass: function (type, page, current) {
                 return (page === current) ? "active" : "";
             },
             itemContentClass: function (type, page, current) {
                 return "";
             },
+            *
+            * */
             currentPage: 1,
             numberOfPages: 5,
             totalPages: 1,
