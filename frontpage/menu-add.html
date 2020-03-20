@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>蔬菜详情</title>
+    <title>菜谱详情</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
     
-   <!-- CSS 
+    <!-- CSS 
     ========================= -->
     <!--bootstrap min css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -38,7 +38,6 @@
     
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
     <!--modernizr min js here-->
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
@@ -123,8 +122,8 @@
                                     <nav>
                                         <ul>
                                             <li><a href="index.html">首页</a></li>
-                                            <li><a class="active" href="vegetable-select.html">蔬菜</a></li>
-                                            <li><a href="menu-select.html">菜谱</a></li>
+                                            <li><a href="vegetable-select.html">蔬菜</a></li>
+                                            <li><a class="active" href="menu-select.html">菜谱</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -240,16 +239,16 @@
     </div>
     <!--header area end-->
 
-    <div id="vegetableDetails">
     <!--breadcrumbs area start-->
     <div class="breadcrumbs_area">
         <div class="container">   
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
+                        <h3>菜谱详情</h3>
                         <ul>
                             <li><a href="index.html">首页</a></li>
-                            <li>蔬菜详情</li>
+                            <li>菜谱发表</li>
                         </ul>
                     </div>
                 </div>
@@ -257,138 +256,121 @@
         </div>         
     </div>
     <!--breadcrumbs area end-->
-    
-    <!--product details start-->
-    <div class="product_details mt-70 mb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="product-details-tab">
-                        <div id="img-1" class="zoomWrapper single-zoom">
-                            <a href="#">
-                                <img v-bind:src="vegetableInfo.image" style="width: 555px;height: 550px">
-                            </a>
-                            <div class="label_product">
-                                <span class="label_new">{{vegetableInfo.typeName}}</span>
-                            </div>
+    <div id="menuAdd">
+        <!--blog body area start-->
+        <div class="blog_details">
+            <div class="container">
+                <form id="menuForm">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12">
+                        <!--blog grid area start-->
+                        <div class="blog_wrapper blog_wrapper_details">
+                            <article class="single_blog">
+                                <figure>
+                                    <div class="blog_thumb">
+                                        <div class="modal_tab_img">
+                                            <a href="#"><img class="img" src="assets/img/product/productbig1.jpg" style="width: 400px;height: 400px"></a>
+                                        </div>
+                                        <div class="modal_tab_img form-group">
+                                            <input type="file" id="menuPhoto" name="menuPhoto" class="form-control" style="width: 50%;margin-left: 25%">
+                                        </div>
+                                    </div>
+                                    <figcaption class="blog_content">
+                                        <div class="post_content">
+                                            <h4>所需食材:</h4>
+                                            <blockquote class="form-group">
+                                                <textarea class="form-control" v-model="params.menuEntity.foodMaterial" name="foodMaterial" rows="2" cols="30" placeholder="输入食材"></textarea>
+                                            </blockquote>
+
+                                            <div>
+                                                <a data-toggle="collapse" href="#collapseOne"><h4>菜谱步骤(点击展开更多):</h4></a>
+                                            </div>
+
+                                            <blockquote class="form-group">
+                                                <textarea class="form-control" v-model="params.stepsEntity.step1" name="step1" rows="2" cols="30" placeholder="步骤一"></textarea>
+                                            </blockquote>
+                                            <blockquote class="form-group">
+                                                <textarea class="form-control" v-model="params.stepsEntity.step2" name="step2" rows="2" cols="30" placeholder="步骤二"></textarea>
+                                            </blockquote>
+                                            <div id="collapseOne" class="accordion-body collapse">
+                                                <div>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step3" name="step3" rows="2" cols="30" placeholder="步骤三"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step4" rows="2" cols="30" placeholder="步骤四"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step5" rows="2" cols="30" placeholder="步骤五"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step6" rows="2" cols="30" placeholder="步骤六"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step7" rows="2" cols="30" placeholder="步骤七"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step8" rows="2" cols="30" placeholder="步骤八"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step9" rows="2" cols="30" placeholder="步骤九"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step10" rows="2" cols="30" placeholder="步骤十"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step11" rows="2" cols="30" placeholder="步骤十一"></textarea>
+                                                    </blockquote>
+                                                    <blockquote>
+                                                        <textarea class="form-control" v-model="params.stepsEntity.step12" rows="2" cols="30" placeholder="步骤十二"></textarea>
+                                                    </blockquote>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </article>
                         </div>
+                        <!--blog grid area start-->
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="product_d_right">
-                       <form action="#">
-                           
-                           <h1><span style="color: green">名称:</span>{{vegetableInfo.vname}}</h1>
-                            <div class=" product_ratting">
-                                <span><span style="color: green">别称:</span>{{vegetableInfo.vnickname}}</span>
-                            </div>
-                           <div class="product_desc">
-                               <span style="color: green">营养成分:</span>{{vegetableInfo.nutrients}}</span>
-                           </div>
-                           <div class="product_desc">
-                               <span style="color: green">主要价值:</span>{{vegetableInfo.mainValue}}</span>
-                           </div>
-                           <div class="product_desc">
-                               <span style="color: green">食用方式:</span>{{vegetableInfo.eatWay}}</span>
-                           </div>
-                           <div class="product_desc">
-                               <span style="color: green">分布范围:</span>{{vegetableInfo.distribution}}</span>
-                           </div>
-                           <div class="product_desc">
-                               <span style="color: green">生长环境:</span>{{vegetableInfo.growingEnvironment}}</span>
-                           </div>
-                           <div class="product_desc">
-                               <span style="color: green">生长时间:</span>{{vegetableInfo.growingTime}}</span>
-                           </div>
-                           <div class="product_desc">
-                               <span style="color: green">形态特征:</span>{{vegetableInfo.characteristics}}</span>
-                           </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>    
-    </div>
-    <!--product details end-->
-    
-    <!--product info start-->
-    <div class="product_d_info mb-65">
-        <div class="container">   
-            <div class="row">
-                <div class="col-12">
-                    <div class="product_d_inner">   
-                        <div class="product_info_button">    
-                            <ul class="nav" role="tablist">
-                                <li >
-                                    <a class="active" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">主要品种</a>
-                                </li>
-                                <li>
-                                     <a data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet" aria-selected="false">种植方式</a>
-                                </li>
-                                <li>
-                                   <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">植物学史</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="info" role="tabpanel" >
-                                <div class="product_info_content">
-                                    <span style="color: #1cbbd2">{{vegetableInfo.varieties}}</span>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="blog_sidebar_widget">
+                            <div class="widget_list widget_search form-group">
+                                <div class="widget_title">
+                                    <h3>菜谱名称</h3>
                                 </div>
+                                <input class="form-control" v-model="params.menuEntity.mname" name="mname" placeholder="输入名称..." type="text">
                             </div>
-                            <div class="tab-pane fade" id="sheet" role="tabpanel" >
-                                <div class="product_info_content">
-                                    <span style="color: #1cbbd2">{{vegetableInfo.plantingWay}}</span>
-                                </div>    
+                            <div class="widget_list widget_search form-group">
+                                <div class="widget_title">
+                                    <h3>菜谱难度</h3>
+                                </div>
+                                <select class="form-control" v-model="params.menuEntity.level" name="level">
+                                    <option value="1">易</option>
+                                    <option value="2">一般</option>
+                                    <option value="3">难</option>
+                                </select>
+                            </div>
+                            <div class="widget_list widget_search form-group">
+                                <div class="widget_title">
+                                    <h3>烹饪时间</h3>
+                                </div>
+                                <input class="form-control" v-model="params.menuEntity.time" name="time" placeholder="输入时间..." type="text">
                             </div>
 
-                            <div class="tab-pane fade" id="reviews" role="tabpanel" >
-                                <div class="product_info_content">
-                                    <span style="color: #1cbbd2">{{vegetableInfo.plantHistory}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>     
-                </div>
-            </div>
-        </div>    
-    </div>  
-    <!--product info end-->
-    
-    <!--product area start-->
-    <section class="product_area related_products">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section_title">
-                        <h2>同类蔬菜推荐</h2>
-                    </div>
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="(data,index) in vegetableTypeInfo">
-                    <div class="single_product">
-                        <div class="product_thumb">
-                            <a class="primary_img" @click="toVegetableDetails(data)"><img v-bind:src="data.image"></a>
-                            <div class="label_product">
-                                <span class="label_new">{{data.typeName}}</span>
-                            </div>
-                        </div>
-                        <div class="product_content grid_content">
-                            <h4 class="product_name"><a @click="toVegetableDetails(data)">{{data.vname}}</a></h4>
-                            <p>{{(data.vnickname).length > 15 ? (data.vnickname).substring(0,15) + '...':data.vnickname}}</p>
-                            <div class="price_box">
-                                <span class="current_price">{{(data.nutrients).length > 10 ? (data.nutrients).substring(0,10) + '...':data.nutrients}}</span>
+                            <div class="widget_list widget_search">
+                                <button type="button" @click="pushMenu()" style="height: 50px">发表菜谱</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
-    </section>
-    <!--product area end-->
-
-    <!--footer area start-->
+        <!--blog section area end-->
+    </div>
+   <!--footer area start-->
     <footer class="footer_widgets footer_border">
         <div class="container">
             <div class="footer_top">
@@ -479,7 +461,6 @@
         </div>  
     </footer>
     <!--footer area end-->
-    </div>
 
 
 
@@ -493,8 +474,8 @@
 <script src="assets/js/popper.js"></script>
 <!--bootstrap min js-->
 <script src="assets/js/bootstrap.min.js"></script>
-    <!--bootstrapValidator-->
-    <script src="assets/js/vendor/bootstrapValidator.min.js"></script>
+<!--bootstrapValidator-->
+<script src="assets/js/vendor/bootstrapValidator.min.js"></script>
 <!--owl carousel min js-->
 <script src="assets/js/owl.carousel.min.js"></script>
 <!--slick min js-->
@@ -518,8 +499,8 @@
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
-    <script>
-        $(function () {
+<script>
+    $(function () {
             /* 重点是这个位置 */
             $("#userHead").change(function() {
                 /*在改变照片时，清空以前图片*/
@@ -532,10 +513,24 @@
                     $(".img").attr("src",src);
                 }
             });
+
+        $("#menuPhoto").change(function() {
+            /*在改变照片时，清空以前图片*/
+            $(".img").empty();
+            var oFReader = new FileReader();
+            var file = document.getElementById('menuPhoto').files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function(oFRevent){
+                var src = oFRevent.target.result;
+                $(".img").attr("src",src);
+            }
         });
-    </script>
+        });
+</script>
+
 </body>
 <!--自定义js-->
 <script src="assets/js/custom/header.js"></script>
-<script src="assets/js/custom/vegetableDetails.js"></script>
+<script src="assets/js/custom/menuAdd.js"></script>
+
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Safira - cart page</title>
+    <title>收藏</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -125,33 +125,6 @@
                                             <li><a class="active"  href="index.html">首页</a></li>
                                             <li><a href="vegetable-select.html">蔬菜</a></li>
                                             <li><a href="menu-select.html">菜谱</a></li>
-                                            <li class="mega_items"><a href="">信息<i class="fa fa-angle-down"></i></a>
-                                                <div class="mega_menu">
-                                                    <ul class="mega_menu_inner">
-                                                        <li><a href="#">其他页面</a>
-                                                            <ul>
-                                                                <li><a href="collection.html">购物车</a></li>
-                                                                <li><a href="404.html">Error 404</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="#">详情</a>
-                                                            <ul>
-                                                                <li><a href="vegetable-details.html">蔬菜详情</a></li>
-                                                                <li><a href="menu-details.html">菜谱详情</a></li>
-                                                            </ul>
-
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li><a href="#">页面<i class="fa fa-angle-down"></i></a>
-                                                <ul class="sub_menu pages">
-                                                    <li><a href="about.html">关于我们</a></li>
-                                                    <li><a href="services.html">服务</a></li>
-                                                    <li><a href="login.html">登录</a></li>
-                                                    <li><a href="404.html">Error 404</a></li>
-                                                </ul>
-                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -285,8 +258,9 @@
     </div>
     <!--breadcrumbs area end-->
 
+    <div id="menuCollection">
      <!--shopping cart area start -->
-    <div class="shopping_cart_area mt-70">
+        <div class="shopping_cart_area mt-70">
         <div class="container">  
             <form action="#"> 
                 <div class="row">
@@ -294,25 +268,27 @@
                         <div class="table_desc">
                             <div class="cart_page table-responsive">
                                 <table>
-                            <thead>
-                                <tr>
-                                    <th class="product_remove">删除</th>
-                                    <th class="product_thumb">图片</th>
-                                    <th class="product_name">菜谱</th>
-                                    <th class="product-price">收藏日期</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                   <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                    <td class="product-price">£65.00</td>
-                                </tr>
-
-                            </tbody>
-                        </table>   
+                                    <thead>
+                                        <tr>
+                                            <th class="product_remove">删除</th>
+                                            <th class="product_thumb">图片</th>
+                                            <th class="product_name">菜谱</th>
+                                            <th class="product-price">难度</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(data,index) in dataList">
+                                            <td class="product_remove"><a @click="deleteCollection(data.collectionId)"><i class="fa fa-trash-o"></i></a></td>
+                                            <td class="product_thumb"><a @click="menuDetails(data)"><img v-bind:src="data.image"></a></td>
+                                            <td class="product_name"><a @click="menuDetails(data)">{{data.mname}}</a></td>
+                                            <td class="product-price" v-if="data.level == 1">⭐</td>
+                                            <td class="product-price" v-else-if="data.level == 2">⭐⭐</td>
+                                            <td class="product-price" v-else-if="data.level == 3">⭐⭐⭐</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <ul id="page" style="margin-left: 35%"></ul>
                         </div>
                      </div>
                  </div>
@@ -320,7 +296,7 @@
         </div>     
     </div>
      <!--shopping cart area end -->
-    
+    </div>
     <!--footer area start-->
     <footer class="footer_widgets footer_border">
         <div class="container">
@@ -425,6 +401,7 @@
 <script src="assets/js/bootstrap.min.js"></script>
  <!--bootstrapValidator-->
 <script src="assets/js/vendor/bootstrapValidator.min.js"></script>
+<script src="assets/js/vendor/bootstrap-paginator.js"></script>
 <!--owl carousel min js-->
 <script src="assets/js/owl.carousel.min.js"></script>
 <!--slick min js-->
@@ -448,8 +425,24 @@
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
-
+    <script>
+        $(function () {
+            /* 重点是这个位置 */
+            $("#userHead").change(function() {
+                /*在改变照片时，清空以前图片*/
+                $(".img").empty();
+                var oFReader = new FileReader();
+                var file = document.getElementById('userHead').files[0];
+                oFReader.readAsDataURL(file);
+                oFReader.onloadend = function(oFRevent){
+                    var src = oFRevent.target.result;
+                    $(".img").attr("src",src);
+                }
+            });
+        });
+    </script>
 </body>
 <!--自定义js-->
 <script src="assets/js/custom/header.js"></script>
+<script src="assets/js/custom/collection.js"></script>
 </html>

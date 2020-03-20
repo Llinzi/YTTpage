@@ -5,7 +5,7 @@ var vm = new Vue({
         //查询内容
         params:{
             mName:"",
-            pageSize:2,
+            pageSize:5,
             currentPage:1,
             pages:1,  //初始化总页数
         },
@@ -45,7 +45,6 @@ var vm = new Vue({
                 dataType:"json",
                 data:this.params,
                 success:function (data) {
-                    console.log(data);
                     if (data.code === 0){
                         vm.dataList = data.dataList;
                         vm.params.pages = data.pages;//总页数

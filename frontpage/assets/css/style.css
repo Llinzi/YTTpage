@@ -925,7 +925,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   padding-left: 25px;
   padding-right: 35px;
   font-size: 13px;
-  height: 45px;
+  height: 50px;
   line-height: 45px;
   border-radius: 25px 0 0 25px;
 }
@@ -3439,7 +3439,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .price_box {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 @media only screen and (max-width: 767px) {
   .price_box {
@@ -3457,7 +3457,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .price_box span.current_price {
   font-weight: 500;
-  font-size: 17px;
+  font-size: 15px;
   color: #40A944;
 }
 @media only screen and (max-width: 767px) {
@@ -5974,7 +5974,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .grid_list .product_content.list_content h4.product_name {
-  font-size: 18px;
+  font-size: 23px;
+  margin-top: 7px;
 }
 .grid_list .product_content.list_content .action_links {
   opacity: inherit;

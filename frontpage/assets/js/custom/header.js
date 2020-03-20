@@ -83,7 +83,10 @@ var vm = new Vue({
         initialize:function(){
             //从缓存里获取用户信息
             this.userInfo = JSON.parse(window.sessionStorage.getItem("userInfo"));
-            //console.log(this.userInfo);
+            if (this.userInfo == null){
+                alert("请先登录!");
+                window.location.href = "login.html";
+            }
         },
 
         //设置用户信息后保存
