@@ -20,9 +20,6 @@
 
     <link href="assets/css/minimal.css" tppabs="http://view.jqueryfuns.com/Ԥ��-/2014/4/8/829_7cf8774263463248de1a19b27aea0b25/assets/css/minimal.css" rel="stylesheet">
 
-    <script src="../../../../../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" tppabs="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../../../../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" tppabs="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body class="bg-3">
 
@@ -101,7 +98,7 @@
                                             <img class="w200" v-bind:src="data.image">
                                         </a>
                                     </div>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-6" style="margin-left: 50px">
                                         <h3>{{data.mname}}</h3>
                                         <h4>{{data.foodMaterial}}</h4>
                                         <h4 v-if="data.level == 1">上手难度:⭐</h4>
@@ -322,6 +319,24 @@
         },
 
         mounted:function () {
+
+            var options = {
+                bootstrapMajorVersion: 1,
+                currentPage: this.params.currentPage, // 当前页数
+                numberOfPages: 5, // 显示按钮的数量
+                totalPages: this.params.pages, // 总页数
+                onPageClicked:function(event, originalEvent, type,page){
+                    vm.params.currentPage=page;
+                    vm.menuQuery();
+                },
+                onPageChanged:function(event, oldPage, newPage){
+                    vm.params.currentPage=newPage;
+                    vm.menuQuery();
+                }
+            };
+            $("#page").bootstrapPaginator(options);
+
+            this.menuQuery();
         },
 
         methods:{
@@ -338,6 +353,7 @@
                             vm.dataList = data.dataList;
                             vm.params.pages = data.pages;//总页数
                             vm.params.currentPage = data.pageNum //第几页
+                            $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
                         }
                     }
                 });

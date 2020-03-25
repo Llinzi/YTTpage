@@ -31,10 +31,6 @@
 </head>
 <body class="bg-3">
 
-<!-- Preloader -->
-<div class="mask"><div id="loader"></div></div>
-<!--/Preloader -->
-
 <!-- Wrap all page content here -->
 <div id="wrap">
 
@@ -83,7 +79,7 @@
                                 <div class="row">
                                     <!--左边列开始（图片）-->
                                     <div class="col-md-3">
-                                        <img class="img" src="" width="298" height="223">
+                                        <img class="img" src="" width="280px" height="223px">
                                         <input type="file" class="form-control" id="vegetablePhoto" name="vegetablePhoto">
                                     </div>
                                     <!--左边列结束（图片）-->
@@ -113,8 +109,7 @@
                                                 <div class="col-sm-8">
                                                     <select v-model="params.typeId" class="form-control" name="typeId" style="width: 200px">
                                                         <option value="">请选择类别</option>
-                                                        <option value="1">菌类</option>
-                                                        <option value="2">叶类</option>
+                                                        <option v-for="item in typeList" v-bind:value="item.tid">{{item.tname}}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -305,6 +300,7 @@
                vid:null,
                image:null
            },
+           typeList:[]
        },
        mounted:function(){
            //隐藏修改按钮
@@ -450,6 +446,7 @@
            });
 
            this.showVegetable();
+           this.selectType();
 
        },
        methods:{
@@ -511,6 +508,23 @@
                    $(".saveBtn").hide();
                    $(".updataBtn").show();
                }
+           },
+
+           //查询类别
+           selectType:function () {
+               $.ajax({
+                   url:"http://localhost:9000/vegetableInfo/selectType",
+                   type:"GET",
+                   dataType:"json",
+                   //async:false,
+                   success:function (data) {
+                       if (data.code === 0){
+                           vm.typeList = data.typeList;
+                       }else {
+                           alert(data.msg);
+                       }
+                   }
+               });
            },
 
            //修改蔬菜信息
