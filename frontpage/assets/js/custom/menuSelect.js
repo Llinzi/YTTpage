@@ -6,6 +6,7 @@ var vm = new Vue({
         params:{
             mName:"",
             pageSize:5,
+            status:1,
             currentPage:1,
             pages:1,  //初始化总页数
         },

@@ -115,7 +115,7 @@ var vm = new Vue({
                             vm.params.menuEntity.image = "http://localhost:9000/img/menu/" + data.fileName + data.extendedName;
                             var userInfo = JSON.parse(window.sessionStorage.getItem("userInfo"));
                             vm.params.menuEntity.userId = userInfo.userId;
-                            //1、添加步骤
+                            //1、添加菜谱
                             $.ajax({
                                 url:"http://localhost:9000/menu/insertMenu",
                                 type:"POST",

@@ -70,6 +70,15 @@
                                     <input v-model="params.mName" type="text" class="form-control" style="width: 150px">
                                 </div>
                                 <div class="col-sm-2 col-xs-2">
+                                    <label>菜谱状态</label>
+                                    <select v-model="params.status" class="form-control" style="width: 100px">
+                                        <option value="">选择状态</option>
+                                        <option value="0">审核中</option>
+                                        <option value="1">审核通过</option>
+                                        <option value="2">审核不通过</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
                                     <label>选择条数</label>
                                     <select v-model="params.pageSize" class="form-control" style="width: 100px">
                                         <option value="5">5</option>
@@ -116,6 +125,15 @@
                                         </h4>
                                     </div>
                                     <div class="col-sm-3">
+                                        <a v-if="data.status == 0" @click="editStatus(data.mid,1)" role="button" class="btn btn-blue" style="margin-top: 80px">
+                                            审核中
+                                        </a>
+                                        <a v-else-if="data.status == 1" @click="editStatus(data.mid,2)" role="button" class="btn btn-blue" style="margin-top: 80px">
+                                            审核通过
+                                        </a>
+                                        <a v-else-if="data.status == 2" @click="editStatus(data.mid,0)" role="button" class="btn btn-blue" style="margin-top: 80px">
+                                            审核不通过
+                                        </a>
                                         <a @click="menuInfo(data)" href="#modalMenu" role="button" class="btn btn-blue" data-toggle="modal" style="margin-top: 80px">
                                             查看信息
                                         </a>
@@ -160,7 +178,7 @@
                                 <div class="row">
                                     <div class="col-sm-5">
                                         <div class="form-group">
-                                            <img src="assets/images/peter-avatar.jpg" class="w200">
+                                            <img :src="menuData.image" class="w200">
                                         </div>
                                     </div>
 
@@ -212,14 +230,26 @@
 
                                 <div class="form-group">
                                     <label>步骤</label>
-                                    <textarea class="form-control" rows="6"></textarea>
+                                    <textarea class="form-control" rows="6">
+                                        步骤一：{{steps.step1}}
+                                        步骤二：{{steps.step2}}
+                                        步骤三：{{steps.step3}}
+                                        {{steps.step4 == null? '':'步骤四：'+steps.step4}}
+                                        {{steps.step5 == null? '':'步骤五：'+steps.step5}}
+                                        {{steps.step6 == null? '':'步骤六：'+steps.step6}}
+                                        {{steps.step7 == null? '':'步骤七：'+steps.step7}}
+                                        {{steps.step8 == null? '':'步骤八：'+steps.step8}}
+                                        {{steps.step9 == null? '':'步骤九：'+steps.step9}}
+                                        {{steps.step10 == null? '':'步骤十：'+steps.step10}}
+                                        {{steps.step411== null? '':'步骤十一：'+steps.step11}}
+                                        {{steps.step12== null? '':'步骤十二：'+steps.step12}}
+                                    </textarea>
                                 </div>
 
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">关闭</button>
-                            <button class="btn btn-green">保存更改</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -310,12 +340,14 @@
         data:{
             params:{
                 mName:"",
+                status:"",
                 pageSize:5,
                 currentPage:1, //当前页
                 pages:1 //总页数
             },
             dataList:[],
             menuData:{},
+            steps:{},
         },
 
         mounted:function () {
@@ -354,6 +386,30 @@
                             vm.params.pages = data.pages;//总页数
                             vm.params.currentPage = data.pageNum //第几页
                             $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
+                        }else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+            },
+
+            //审核菜谱
+            editStatus:function(mid,status){
+                $.ajax({
+                    url:"http://localhost:9000/menu/updateMenu",
+                    type:"POST",
+                    dataType:"json",
+                    contentType:"application/json",
+                    data:JSON.stringify({
+                        "mid":mid,
+                        "status":status
+                    }),
+                    success:function (data) {
+                        if (data.code === 0){
+                            alert(data.msg);
+                            vm.menuQuery();
+                        }else {
+                            alert(data.msg);
                         }
                     }
                 });
@@ -363,7 +419,23 @@
             menuInfo:function (menuData) {
                 console.log(menuData);
                 vm.menuData = menuData;
+                $.ajax({
+                    url:"http://localhost:9000/menu/selectStepsByMId",
+                    type:"GET",
+                    dataType:"json",
+                    data: {"mId":menuData.mid},
+                    success:function (data) {
+                        if (data.code === 0){
+                            //vm.steps = vm.removeNull(data.stepsData);
+                            vm.steps = data.stepsData;
+                        }else {
+                            console.log(data.msg);
+                        }
+
+                    }
+                });
             },
+
         }
 
     });

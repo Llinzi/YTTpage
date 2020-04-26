@@ -1,0 +1,451 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>收藏</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- CSS
+    ========================= -->
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!--slick min css-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--font awesome css-->
+    <link rel="stylesheet" href="assets/css/font.awesome.css">
+    <!--ionicons css-->
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
+    <!--linearicons css-->
+    <link rel="stylesheet" href="assets/css/linearicons.css">
+    <!--animate css-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <!--slinky menu css-->
+    <link rel="stylesheet" href="assets/css/slinky.menu.css">
+    <!--plugins css-->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--modernizr min js here-->
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+
+<!--header area start-->
+<div id="headerApp">
+    <header>
+        <div class="main_header">
+            <div class="header_middle">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="header_right_info">
+                                <div class="header_account_area">
+                                    <div class="header_account_list register">
+                                        <ul>
+                                            <li><a href="login.html">注册</a></li>
+                                            <li><span>/</span></li>
+                                            <li><a href="login.html">登录</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="header_account_list header_wishlist">
+                                        <a href="collection.html" title="菜谱收藏"><span class="lnr lnr-star"></span> </a>
+                                    </div>
+                                    <div class="header_account_list header_wishlist">
+                                        <a href="myMenu.html" title="我的菜谱"><span class="lnr lnr-menu"></span></a>
+                                    </div>
+                                    <!--用户头像-->
+                                    <div class="header_account_list  mini_cart_wrapper">
+                                        <a href="javascript:void(0)"><span class="lnr lnr-user"></span></a>
+                                        <!--mini cart-->
+                                        <div class="mini_cart">
+                                            <div class="cart_gallery">
+                                                <div class="cart_item">
+                                                    <div class="cart_img">
+                                                        <a href="#" data-toggle="modal" data-target="#modal_head"><img v-bind:src="userInfo.userHead" title="点击更换头像" style="height: 100px;width: 100px"></a>
+                                                    </div>
+                                                    <div class="cart_info">
+                                                        <p><span>名称:{{userInfo.userName}}</span></p>
+                                                        <p style="margin-top: -10px"><span>性别:{{userInfo.userSex}}</span></p>
+                                                        <p style="margin-top: -10px"><span>电话:{{userInfo.userPhone}}</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mini_cart_footer">
+                                                <div class="cart_button">
+                                                    <a href="#" data-toggle="modal" data-target="#modal_userInfo"><i class="fa fa-cog"></i>设置用户信息</a>
+                                                </div>
+                                                <div class="cart_button">
+                                                    <a href="login.html"><i class="fa fa-sign-out"></i>退出登录</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!--mini cart end-->
+                                    </div>
+                                    <!--/用户头像-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_bottom sticky-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                            <div class="categories_menu">
+                                <div style="margin-top: 8px">
+                                    <h4>蔬菜百科让您了解蔬菜</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!--main menu start-->
+                            <div class="main_menu menu_position">
+                                <nav>
+                                    <ul>
+                                        <li><a class="active"  href="index.html">首页</a></li>
+                                        <li><a href="vegetable-select.html">蔬菜</a></li>
+                                        <li><a href="menu-select.html">菜谱</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!--main menu end-->
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="call-support">
+                                <p><a href="tel:(08)23456789">(0854) 23 456 789</a> Customer Support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 用户信息模态框开始-->
+    <div class="modal fade" id="modal_userInfo" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-x"></i></span>
+                </button>
+                <div class="modal_body">
+                    <div class="container">
+                        <div class="row" style="margin-left: 15%">
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                <div class="modal_right">
+                                    <div class="modal_title mb-10">
+                                        <h2>设置用户信息</h2>
+                                    </div>
+                                    <div class="variants_selects">
+                                        <form id="userInfoForm">
+                                            <div class="variants_size form-group">
+                                                <h2>名称</h2>
+                                                <input v-model="userInfo.userName" name="userName" type="text" class="form-control"/>
+                                            </div>
+                                            <div class="row" style="margin-top: 15px">
+                                                <div class="col-6">
+                                                    <div class="variants_color form-group">
+                                                        <h2>性别</h2>
+                                                        <select v-model="userInfo.userSex" name="userSex" class="form-control">
+                                                            <option selected value="0">男</option>
+                                                            <option value="1">女</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="variants_color form-group">
+                                                        <h2>年龄</h2>
+                                                        <input v-model="userInfo.userAge" name="userAge" type="text" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="variants_size" style="margin-top: 15px">
+                                                <h2>手机号</h2>
+                                                <input v-model="userInfo.userPhone" disabled="disabled" type="text" class="form-control"/>
+                                            </div>
+
+                                            <div class="variants_size form-group" style="margin-top: 15px">
+                                                <h2>邮箱</h2>
+                                                <input v-model="userInfo.userEmail" name="userEmail" type="text" class="form-control"/>
+                                            </div>
+
+                                            <div style="margin-top: 25px">
+                                                <button @click="saveUser()" type="button" class="btn-primary" style="margin-left: 40%">保存</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 用户信息模态框结束-->
+
+    <!-- 修改头像模态框开始-->
+    <div class="modal fade" id="modal_head" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-x"></i></span>
+                </button>
+                <div class="modal_body">
+                    <div class="container">
+                        <div class="modal_tab">
+                            <div class="tab-content product-details-large">
+                                <div class="tab-pane fade show active" role="tabpanel" >
+                                    <form id="userForm">
+                                        <div class="modal_tab_img">
+                                            <a href="#"><img class="img" v-bind:src="userInfo.userHead" alt="" style="width: 200px;height: 200px"></a>
+                                        </div>
+                                        <div class="modal_tab_img">
+                                            <input type="file" id="userHead" name="userHead" class="form-control" style="width: 50%;margin-left: 25%">
+                                        </div>
+                                        <div style="margin-top: 25px">
+                                            <button @click="updateUserHead()" type="button" class="btn-primary" style="margin-left: 40%">保存</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 修改模态框结束-->
+</div>
+<!--header area end-->
+
+<!--breadcrumbs area start-->
+<div class="breadcrumbs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <h3>我的菜谱</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li>我的菜谱</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+
+<div id="menuCollection">
+    <!--shopping cart area start -->
+    <div class="shopping_cart_area mt-70">
+        <div class="container">
+            <form action="#">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table_desc">
+                            <div class="cart_page table-responsive">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th class="product_remove">删除</th>
+                                        <th class="product_thumb">图片</th>
+                                        <th class="product_name">菜谱</th>
+                                        <th class="product-price">状态</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="(data,index) in dataList">
+                                        <td class="product_remove"><a @click="deleteMenu(data.mid)"><i class="fa fa-trash-o"></i></a></td>
+                                        <td class="product_thumb"><a @click="menuDetails(data)"><img v-bind:src="data.image"></a></td>
+                                        <td class="product_name"><a @click="menuDetails(data)">{{data.mname}}</a></td>
+                                        <td class="product-price" v-if="data.status == 0">审核中</td>
+                                        <td class="product-price" v-else-if="data.status == 1">审核通过</td>
+                                        <td class="product-price" v-else-if="data.status == 2">审核不通过</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul id="page" style="margin-left: 35%"></ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--shopping cart area end -->
+</div>
+<!--footer area start-->
+<footer class="footer_widgets footer_border">
+    <div class="container">
+        <div class="footer_top">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-7">
+                    <div class="widgets_container contact_us">
+                        <div class="footer_logo">
+                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                        </div>
+                        <p class="footer_desc">We are a team of designers and developers that create high quality eCommerce, WordPress, Shopify .</p>
+                        <p><span>Address:</span> 4710-4890 Breckinridge USA</p>
+                        <p><span>Email:</span> <a href="#">demo@hasthemes.com</a></p>
+                        <p><span>Call us:</span> <a href="tel:(08)23456789">(08) 23 456 789</a> </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-5">
+                    <div class="widgets_container widget_menu">
+                        <h3>Information</h3>
+                        <div class="footer_menu">
+
+                            <ul>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                                <li><a href="#"> Privacy Policy</a></li>
+                                <li><a href="#"> Terms & Conditions</a></li>
+                                <li><a href="contact.html"> Contact Us</a></li>
+                                <li><a href="#"> Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="widgets_container widget_menu">
+                        <h3>Extras</h3>
+                        <div class="footer_menu">
+                            <ul>
+                                <li><a href="#">Brands</a></li>
+                                <li><a href="#">  Gift Certificates</a></li>
+                                <li><a href="#">Affiliate</a></li>
+                                <li><a href="#">Specials</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#"> Order History</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="widgets_container widget_newsletter">
+                        <h3>Sign up newsletter</h3>
+                        <p class="footer_desc">Get updates by subscribe our weekly newsletter</p>
+                        <div class="subscribe_form">
+                            <form id="mc-form" class="mc-form footer-newsletter" >
+                                <input id="mc-email" type="email" autocomplete="off" placeholder="Enter you email" />
+                                <button id="mc-submit">Subscribe</button>
+                            </form>
+                            <!-- mailchimp-alerts Start -->
+                            <div class="mailchimp-alerts text-centre">
+                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                            </div><!-- mailchimp-alerts end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-7">
+                    <div class="copyright_area">
+                        <p>Copyright  © 2020  <a href="#">Safira</a>  . All Rights Reserved.Design by  <a href="#">Safira</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="footer_payment">
+                        <ul>
+                            <li><a href="#"><img src="assets/img/icon/paypal1.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/img/icon/paypal2.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/img/icon/paypal3.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/img/icon/paypal4.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer area end-->
+
+<!-- JS
+============================================ -->
+<!--jquery min js-->
+<script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+<!--vue js-->
+<script src="assets/js/vendor/vue.js"></script>
+<!--popper min js-->
+<script src="assets/js/popper.js"></script>
+<!--bootstrap min js-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!--bootstrapValidator-->
+<script src="assets/js/vendor/bootstrapValidator.min.js"></script>
+<script src="assets/js/vendor/bootstrap-paginator.js"></script>
+<!--owl carousel min js-->
+<script src="assets/js/owl.carousel.min.js"></script>
+<!--slick min js-->
+<script src="assets/js/slick.min.js"></script>
+<!--magnific popup min js-->
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<!--counterup min js-->
+<script src="assets/js/jquery.counterup.min.js"></script>
+<!--jquery countdown min js-->
+<script src="assets/js/jquery.countdown.js"></script>
+<!--jquery ui min js-->
+<script src="assets/js/jquery.ui.js"></script>
+<!--jquery elevatezoom min js-->
+<script src="assets/js/jquery.elevatezoom.js"></script>
+<!--isotope packaged min js-->
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<!--slinky menu js-->
+<script src="assets/js/slinky.menu.js"></script>
+<!-- Plugins JS -->
+<script src="assets/js/plugins.js"></script>
+
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+<script>
+    $(function () {
+        /* 重点是这个位置 */
+        $("#userHead").change(function() {
+            /*在改变照片时，清空以前图片*/
+            $(".img").empty();
+            var oFReader = new FileReader();
+            var file = document.getElementById('userHead').files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function(oFRevent){
+                var src = oFRevent.target.result;
+                $(".img").attr("src",src);
+            }
+        });
+    });
+</script>
+</body>
+<!--自定义js-->
+<script src="assets/js/custom/header.js"></script>
+<script src="assets/js/custom/myMenu.js"></script>
+</html>

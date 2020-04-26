@@ -79,7 +79,8 @@
                                 <div class="col-sm-2 col-xs-2">
                                     <label>类别</label>
                                     <select v-model="params.typeId" class="form-control" style="width: 100px">
-                                        <option value="null">选择类别</option>
+                                        <option value="">选择类别</option>
+                                        <option v-for="item in typeList" v-bind:value="item.tid">{{item.tname}}</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-2 col-xs-2">
@@ -127,7 +128,13 @@
                                         <td>{{data.vname}}</td>
                                         <td v-if="data.vnickname==null">{{data.vnickname}}</td>
                                         <td v-else v-bind:title="data.vnickname">{{(data.vnickname).length > 15 ? (data.vnickname).substring(0,15) + '...':data.vnickname}}</td>
-                                        <td>{{data.typeId}}</td>
+                                        <td v-if="data.typeId == 1">叶类</td>
+                                        <td v-else-if="data.typeId == 2">根茎类</td>
+                                        <td v-else-if="data.typeId == 3">茄果/瓜果</td>
+                                        <td v-else-if="data.typeId == 4">菌菇类</td>
+                                        <td v-else-if="data.typeId == 5">豆类/芽类</td>
+                                        <td v-else-if="data.typeId == 6">调料类</td>
+                                        <td v-else-if="data.typeId == 7">果类</td>
                                         <td>{{data.eatWay}}</td>
                                         <td v-if="data.nutrients==null">{{data.nutrients}}</td>
                                         <td v-else v-bind:title="data.nutrients">{{data.nutrients.length > 15 ? (data.nutrients).substring(0,15) + '...':data.nutrients}}</td>
@@ -210,11 +217,12 @@
                 vName:null,
                 nutrients:null,
                 typeId:null,
-                pageSize:5,
+                pageSize:10,
                 currentPage:1,
                 pages:1  //初始化总页数
             },
             dataList:[],
+            typeList:[],
         },
 
         mounted:function(){
@@ -236,6 +244,7 @@
             $("#page").bootstrapPaginator(options);
 
             this.selectVegetable();
+            this.selectType();
         },
 
         methods:{
@@ -248,7 +257,6 @@
                    data: this.params,
                    success:function (data) {
                        if (data.code === 0){
-                           console.log(data);
                            vm.dataList = data.dataList;//查询到的数据
                            vm.params.pages = data.pages;//总页数
                            vm.params.currentPage = data.pageNum //第几页
@@ -260,6 +268,24 @@
                    }
                });
            },
+
+            //查询类别
+            selectType:function () {
+                $.ajax({
+                    url:"http://localhost:9000/vegetableInfo/selectType",
+                    type:"GET",
+                    dataType:"json",
+                    //async:false,
+                    success:function (data) {
+                        if (data.code === 0){
+                            vm.typeList = data.typeList;
+                        }else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+            },
+
             //编辑蔬菜信息
             editVegetable:function (index) {
                 //把需要编辑的蔬菜信息放入缓存

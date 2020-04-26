@@ -10,6 +10,7 @@ var vm = new Vue({
             pageSize:8,
             currentPage:1,
             pages:1,  //初始化总页数
+            total:1,
         },
         dataList:[],
         typeList:[],
@@ -50,6 +51,7 @@ var vm = new Vue({
                         vm.dataList = data.dataList;//查询到的数据
                         vm.params.pages = data.pages;//总页数
                         vm.params.currentPage = data.pageNum //第几页
+                        vm.params.total = data.total
                         //设置分页(当前页,总页数)
                         $("#page").bootstrapPaginator('setOptions',{currentPage:vm.params.currentPage,totalPages:vm.params.pages});
                     }else {
