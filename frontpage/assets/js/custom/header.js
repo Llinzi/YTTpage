@@ -91,6 +91,7 @@ var vm = new Vue({
 
         //设置用户信息后保存
         saveUser:function(){
+            //console.log(this.userInfo)
             //手动验证表单
             $("#userInfoForm").data("bootstrapValidator").validate();
             //获取表单验证状态
@@ -100,13 +101,13 @@ var vm = new Vue({
                     url:"http://localhost:9000/users/updateUser",
                     type:"POST",
                     dataType:"json",
-                    contentType: 'application/json; charset=UTF-8',
-                    data:JSON.stringify(vm.userInfo),
+                    contentType: 'application/json',
+                    data:JSON.stringify(this.userInfo),
                     success:function (data) {
-                        //console.log(data);
+                        console.log(data);
                         if (data.code === 0){
                             //更新缓存
-                           window.sessionStorage.setItem("userInfo",JSON.stringify(vm.userInfo));
+                            window.sessionStorage.setItem("userInfo",JSON.stringify(this.userInfo));
                             alert(data.msg);
                         }else {
                             alert(data.msg);

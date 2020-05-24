@@ -84,7 +84,8 @@
                                                    </div>
                                                     <div class="cart_info">
                                                         <p><span>名称:{{userInfo.userName}}</span></p>
-                                                        <p style="margin-top: -10px"><span>性别:{{userInfo.userSex}}</span></p>
+                                                        <p style="margin-top: -10px" v-if="userInfo.userSex == 0"><span>性别:男</span></p>
+                                                        <p style="margin-top: -10px" v-else=""><span>性别:女</span></p>
                                                         <p style="margin-top: -10px"><span>电话:{{userInfo.userPhone}}</span></p>
                                                     </div>
                                                 </div>
